@@ -22,7 +22,7 @@ should you have any questions.</p>
 <?php
 
 $this->widget(
-    'booster.widgets.TbButton',
+    'ext.booster.widgets.TbButton',
     array(
         'label' => 'Top popover',
         'context' => 'primary',

@@ -3,21 +3,21 @@
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
-Yii::setPathOfAlias('booster', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/yiibooster');
+Yii::setPathOfAlias('booster', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/booster');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'One Day in Town Club',
 
-	'preload'=>array('log', 'yiibooster'),
+	'preload'=>array('log', 'booster'),
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-        'ext.yiibooster.*',
+        'ext.booster.*',
 	),
 
 	'modules'=>array(
@@ -29,7 +29,7 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
             'generatorPaths'=>array(
-                'ext.yiibooster.gii',
+                'ext.booster.gii',
             ),
         ),
 
@@ -37,14 +37,24 @@ return array(
 
 	// application components
 	'components'=>array(
-        'yiibooster' => array(
-            'class' => 'booster.components.Booster',
+        'booster' => array(
+            'class' => 'ext.booster.components.Booster',
         ),
 
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            'class' => 'WebUser',
 		),
+
+        'authManager' => array(
+            // Будем использовать свой менеджер авторизации
+            'class' => 'PhpAuthManager',
+            // Роль по умолчанию. Все, кто не админы, модераторы и юзеры — гости.
+            'defaultRoles' => array('guest'),
+        ),
+
+
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -56,19 +66,19 @@ return array(
 			),
 		),
 		*/
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
-		// uncomment the following to use a MySQL database
-		/*
+		// uncomment the following to use a MySQL database */
+
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=oneday',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
 		),
-		*/
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
