@@ -16,7 +16,7 @@ class PhpAuthManager extends CPhpAuthManager{
             $this->assign(Yii::app()->user->role, Yii::app()->user->id);
         }
     }
-}
+
 
 
 
