@@ -34,7 +34,7 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index', 'login','partner'),
+                'actions'=>array('index', 'login'),
                 'users'=>array("*"),
             ),
             array('allow',
@@ -114,12 +114,6 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
-    public function actionPartner(){
-        $partners = Partners::model()->findAll();
-        $this->render('partners', array('partners'=>$partners));
-    }
-
-
 	/**
 	 * Displays the login page
 	 */
@@ -154,7 +148,5 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-
-
 
 }

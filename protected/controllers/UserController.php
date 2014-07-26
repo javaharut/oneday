@@ -36,7 +36,7 @@ class UserController extends Controller
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'users' => array('admin'),
+                'roles' => array(User::ADMIN),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
@@ -85,6 +85,7 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
+
 
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
