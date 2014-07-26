@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 
 <p>Please fill out the following form with your login credentials:</p>
 
-<div class="span-12">
+<div class="span-12 ">
 <?php
 /** @var TbActiveForm $form */
 $form = $this->beginWidget(
@@ -24,6 +24,7 @@ $form = $this->beginWidget(
         'enableClientValidation'=>true,
         'clientOptions'=>array(
             'validateOnSubmit'=>true,
+
         ),
     )
 );
@@ -36,7 +37,7 @@ $this->widget(
     array(
         'label' => 'Log in',
         'context' => 'success',
-        'buttonType' => 'submit', 
+        'buttonType' => 'submit',
     )
 
 );
