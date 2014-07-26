@@ -6,12 +6,12 @@
 function drawTree($users) {
     echo "<ul>";
     foreach($users->users as $user) {
-        echo "<li><span><i class='glyphicon-minus'></i> </span>$user->username";
+        echo "<li><span><i class='glyphicon-minus'></i> $user->username </span>\n";
         if(!empty($user->users))
             drawTree($user);
-        echo "</li>";
+        echo "</li>\n";
     }
-    echo "</ul>";
+    echo "</ul>\n";
 }
 
 ?>
