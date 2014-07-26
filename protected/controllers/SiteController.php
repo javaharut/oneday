@@ -34,12 +34,20 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index', 'login'),
+                'actions'=>array('index', 'login', 'partners'),
                 'users'=>array("*"),
             ),
             array('allow',
                 'actions'=>array('contact', 'logout'),
                 'roles'=>array(User::USER),
+            ),
+            array('allow',
+                'actions'=>array(),
+                'roles'=>array(User::MODER),
+            ),
+            array('allow',
+                'actions'=>array(),
+                'roles'=>array(User::ADMIN),
             ),
             array('deny',
                 //'actions'=>array('*'),
@@ -65,6 +73,23 @@ class SiteController extends Controller
 		$this->render('index', array('model'=>$model));
 	}
 
+    public function actionCreateuser() {
+        $model = new User;
+
+        // Performing ajax validation
+        $this->performAjaxValidation($model);
+
+        if (isset($_POST['User'])) {
+            $model->attributes = $_POST['User'];
+            if ($model->save())
+                Yii::app()->user->setFlash('user_added','User has been created successfully!');
+        }
+
+        $this->render('createuser', array(
+            'model' => $model,
+        ));
+    }
+
     public function actionUser() {
         $user = new User('search');
         $user->unsetAttributes(); // clear any default values
@@ -72,6 +97,12 @@ class SiteController extends Controller
             $user->attributes = $_GET['User'];
 
         $this->render('user',array('user'=>$user));
+    }
+
+
+    public function actionPartners(){
+        $partners = Partner::model()->findAll();
+        $this->render('partners', array('partners'=>$partners));
     }
 
 	/**
@@ -148,5 +179,18 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    /**
+     * Performs the AJAX validation.
+     * @param CModel the model to be validated
+     */
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
 
 }
