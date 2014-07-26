@@ -37,12 +37,6 @@ class SiteController extends Controller
 	{
         $model = User::model()->findByPk(1);
 
-        $users = User::model()->findAll();
-
-        echo "<pre>";
-        print_r($users);
-        exit;
-
         //echo "<pre>";
 //        print_r($model);
 //        exit;
