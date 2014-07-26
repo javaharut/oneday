@@ -49,6 +49,12 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
+    <?php
+        echo "<pre>";
+        print_r(Yii::app()->user);
+    ?>
+
+
 	<?php echo $content; ?>
 
 	<div class="clear"></div>
