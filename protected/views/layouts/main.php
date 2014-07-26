@@ -51,7 +51,7 @@
 
     <?php
         // echo "<pre>";
-         var_dump(Yii::app()->user->role);
+         //var_dump(Yii::app()->user->role);
     ?>
 
 	<?php echo $content; ?>
