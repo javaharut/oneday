@@ -15,6 +15,7 @@ class UserIdentity extends CUserIdentity {
             // метод getId(см. ниже).
             $this->_id = $user->id;
 
+            $this->setState('role', $user->role);
             // Далее логин нам не понадобится, зато имя может пригодится
             // в самом приложении. Используется как Yii::app()->user->name.
             // realName есть в нашей модели. У вас это может быть name, firstName

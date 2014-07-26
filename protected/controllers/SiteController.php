@@ -15,9 +15,9 @@ class SiteController extends Controller
 			),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
-			'page'=>array(
+			/*'page'=>array(
 				'class'=>'CViewAction',
-			),
+			),*/
 		);
 	}
 
@@ -25,7 +25,26 @@ class SiteController extends Controller
     {
         return array(
             //<any other filters here>
+            'accessControl',
             array('booster.filters.BoosterFilter - delete')
+        );
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow',
+                'actions'=>array('index', 'login'),
+                'users'=>array("*"),
+            ),
+            array('allow',
+                'actions'=>array('contact', 'logout'),
+                'roles'=>array(User::GUEST),
+            ),
+            array('deny',
+                //'actions'=>array('*'),
+                'users'=>array('*'),
+            ),
         );
     }
 

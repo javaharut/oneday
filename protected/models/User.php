@@ -23,6 +23,11 @@
  */
 class User extends CActiveRecord
 {
+    const GUEST = "guest";
+    const ADMIN = 3;
+    const MODER = 2;
+    const USER = 1;
+
 	/**
 	 * @return string the associated database table name
 	 */

@@ -50,10 +50,9 @@
 	<?php endif?>
 
     <?php
-        echo "<pre>";
-        print_r(Yii::app()->user);
+        //echo "<pre>";
+       // var_dump(Yii::app()->user->checkAccess(2));
     ?>
-
 
 	<?php echo $content; ?>
 
