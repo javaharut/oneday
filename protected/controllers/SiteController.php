@@ -41,14 +41,6 @@ class SiteController extends Controller
                 'actions'=>array('contact', 'logout'),
                 'roles'=>array(User::USER),
             ),
-            array('allow',
-                'actions'=>array(),
-                'roles'=>array(User::MODER),
-            ),
-            array('allow',
-                'actions'=>array(),
-                'roles'=>array(User::ADMIN),
-            ),
             array('deny',
                 //'actions'=>array('*'),
                 'users'=>array('*'),
@@ -72,23 +64,6 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index', array('model'=>$model));
 	}
-
-    public function actionCreateuser() {
-        $model = new User;
-
-        // Performing ajax validation
-        $this->performAjaxValidation($model);
-
-        if (isset($_POST['User'])) {
-            $model->attributes = $_POST['User'];
-            if ($model->save())
-                Yii::app()->user->setFlash('user_added','User has been created successfully!');
-        }
-
-        $this->render('createuser', array(
-            'model' => $model,
-        ));
-    }
 
     public function actionUser() {
         $user = new User('search');
@@ -173,18 +148,5 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-
-
-    /**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($model)
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-form') {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-    }
 
 }
