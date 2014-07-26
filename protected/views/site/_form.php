@@ -9,7 +9,29 @@
 
 	<?php echo $form->textFieldGroup($model,'id',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
-	<?php echo $form->textFieldGroup($model,'parent_id',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+
+    <?php
+
+    $list = CHtml::listData(User::model()->findAll(),'id','username');
+
+   // print_r($list);
+    //exit;?>
+<div class="form-group">
+    <?php
+    $this->widget(
+        'booster.widgets.TbSelect2',
+        array(
+            'name' => 'username',
+            'model'=>$model,
+            'data' => $list,
+            'htmlOptions' => array(
+                'class'=>'span5',
+                'style'=>'width:100%',
+            ),
+        )
+    );
+    ?>
+</div>
 
 	<?php echo $form->textFieldGroup($model,'name',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
@@ -29,7 +51,22 @@
 
 	<?php echo $form->passwordFieldGroup($model,'password',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
-	<?php echo $form->textFieldGroup($model,'role',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+<div class="form-group">
+    <?php
+    $this->widget(
+        'booster.widgets.TbSelect2',
+        array(
+            'name' => 'role',
+            'model'=>$model,
+            'data' => array(User::USER=>"User", User::MODER=>"Manager", User::ADMIN=>"Admin"),
+            'htmlOptions' => array(
+                'class'=>'span5',
+                'style'=>'width:100%',
+            ),
+        )
+    );
+    ?>
+</div>
 
 <div class="form-actions">
 	<?php $this->widget('booster.widgets.TbButton', array(
