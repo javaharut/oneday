@@ -20,6 +20,9 @@ Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
 
 <?php
+        //echo "<pre>";
+        //print_r($model);
+        //exit;
 
 $this->widget(
     'ext.booster.widgets.TbButton',
