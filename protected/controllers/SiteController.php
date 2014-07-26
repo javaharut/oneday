@@ -34,7 +34,7 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions'=>array('index', 'login','partners'),
+                'actions'=>array('index', 'login','partner'),
                 'users'=>array("*"),
             ),
             array('allow',
@@ -114,8 +114,8 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
-    public function actionPartners(){
-        $partners = Partner::model()->findAll();
+    public function actionPartner(){
+        $partners = Partners::model()->findAll();
         $this->render('partners', array('partners'=>$partners));
     }
 
