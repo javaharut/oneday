@@ -48,10 +48,10 @@ class SiteController extends Controller
                 'actions'=>array(),
                 'roles'=>array(User::ADMIN),
             ),
-            array('deny',
+           /* array('deny',
                 //'actions'=>array('*'),
                 'users'=>array('*'),
-            ),
+            ),*/
         );
     }
 
@@ -87,6 +87,16 @@ class SiteController extends Controller
         $this->render('createuser', array(
             'model' => $model,
         ));
+    }
+
+    public function actionTree() {
+
+        $criteria = new CDbCriteria();
+        $criteria->order ="parent_id asc";
+
+        $users = User::model()->findByPk(0);
+
+        $this->render('tree', array('users'=>$users));
     }
 
     public function actionUser() {
