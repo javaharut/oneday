@@ -20,7 +20,7 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Moderator',
         'children' => array(
-            'user',          // позволим модератору всё, что позволено пользователю
+            '1',          // позволим модератору всё, что позволено пользователю
         ),
         'bizRule' => null,
         'data' => null
@@ -29,7 +29,7 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Administrator',
         'children' => array(
-            'moderator',         // позволим админу всё, что позволено модератору
+            '2',         // позволим админу всё, что позволено модератору
         ),
         'bizRule' => null,
         'data' => null

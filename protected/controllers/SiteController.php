@@ -39,7 +39,7 @@ class SiteController extends Controller
             ),
             array('allow',
                 'actions'=>array('contact', 'logout'),
-                'roles'=>array(User::GUEST),
+                'roles'=>array(User::USER),
             ),
             array('deny',
                 //'actions'=>array('*'),
