@@ -30,8 +30,7 @@ class SiteController extends Controller
         );
     }
 
-    public function accessRules()
-    {
+    public function accessRules() {
         return array(
             array('allow',
                 'actions'=>array('index', 'login', 'partners'),
