@@ -36,7 +36,7 @@ $this->widget(
     array(
         'label' => 'Log in',
         'context' => 'success',
-
+        'buttonType' => 'submit', 
     )
 
 );
