@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 
 <p>Please fill out the following form with your login credentials:</p>
 
-<div class="span-5">
+<div class="span-3">
 <?php
 /** @var TbActiveForm $form */
 $form = $this->beginWidget(
