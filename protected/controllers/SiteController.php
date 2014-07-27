@@ -82,6 +82,7 @@ class SiteController extends Controller
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
             if ($model->save())
+                $this->redirect('tree');
                 Yii::app()->user->setFlash('user_added','User has been created successfully!');
         }
 
