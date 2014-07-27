@@ -9,40 +9,38 @@
 </head>
 
 <body>
+<div id="mainmenu" >
 
-<div class="container" >
-	<div id="mainmenu" >
-
-        <?php  $this->widget('booster.widgets.TbNavbar', array(
+    <?php  $this->widget('booster.widgets.TbNavbar', array(
             'brand' => 'One Day',
-                'fixed' => false,
-                'fluid' => true, // <-- This dysplays some title on the left
-                'items' => array(
+            'fixed' => top,
+            'fluid' => true, // <-- This dysplays some title on the left
+            'items' => array(
                 array(
                     'class' => 'booster.widgets.TbMenu',
                     'type' => 'navbar',
                     'items' => array(
-                            array('label'=>'Home', 'url'=>array('/site/index')),
-                            array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                            array('label'=>'Contact', 'url'=>array('/site/contact')),
-                            array('label'=>'New User', 'url'=>array('/site/createuser')),
-                            array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                            array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'Home', 'url'=>array('/site/index')),
+                        array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+                        array('label'=>'Contact', 'url'=>array('/site/contact')),
+                        array('label'=>'New User', 'url'=>array('/site/createuser')),
+                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                         array(
                             'label' => 'Dropdown',
                             'items' => array(
-                                array('label' => 'Item1', 'url' => '#')
-                            )
-                        ),// Typical Yii menu items config
+                                array('label' => 'Item1', 'url'=>'#'))
                         )
-                    )
+                    ),// Typical Yii menu items config
+
                 )
             )
+        )
 
-        ); ?>
-	</div><!-- mainmenu -->
+    ); ?>
+</div><!-- mainmenu -->
 
-
+<div class="container" >
     <?php
         // echo "<pre>";
          //var_dump(Yii::app()->user->role);

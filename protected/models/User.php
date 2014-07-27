@@ -8,7 +8,7 @@
  * @property integer $parent_id
  * @property string $name
  * @property string $lname
- * @property integer $phone
+ * @property string $phone
  * @property string $passport
  * @property string $email
  * @property string $reg_date
@@ -44,10 +44,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, parent_id, phone, balance, role', 'numerical', 'integerOnly'=>true),
-			array('name, lname, username, password', 'length', 'max'=>255),
+			array('id, parent_id, balance, role', 'numerical', 'integerOnly'=>true, 'min'=>0),
+			array('name, lname, username, password, phone', 'length', 'max'=>255),
+            array('id', 'unique'),
 			array('passport', 'length', 'max'=>20),
 			array('email', 'length', 'max'=>100),
+            array('email','email'),
 			array('reg_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -77,13 +79,13 @@ class User extends CActiveRecord
 			'id' => 'ID',
 			'parent_id' => 'Parent',
 			'name' => 'Name',
-			'lname' => 'Lname',
+			'lname' => 'LastName',
 			'phone' => 'Phone',
 			'passport' => 'Passport',
 			'email' => 'Email',
 			'reg_date' => 'Reg Date',
 			'balance' => 'Balance',
-			'username' => 'Username',
+			'username' => 'Login',
 			'password' => 'Password',
 			'role' => 'Role',
 		);

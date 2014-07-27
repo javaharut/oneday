@@ -42,7 +42,6 @@ function drawTree($users) {
     </div>
 </div>
 
-
 <script>
     $(function () {
         $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
