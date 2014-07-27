@@ -6,7 +6,11 @@
 function drawTree($users) {
     echo "<ul>";
     foreach($users->users as $user) {
-        echo "<li><span><i class='glyphicon-minus'></i> $user->username </span>\n";
+        echo "<li><span><i class='glyphicon-minus'></i> $user->username </span>
+                <button type='button' class='btn btn-info btn-sm more'>
+                    <input type ='hidden' value='$user->id' />
+                    <i class='glyphicon glyphicon-list'></i>
+                </button>\n";
         if(!empty($user->users))
             drawTree($user);
         echo "</li>\n";
@@ -14,21 +18,27 @@ function drawTree($users) {
     echo "</ul>\n";
 }
 ?>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading-small2"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseDVR3">
+                    <h4 class="panel-title">
+                        Users
+                    </h4>
+                </a>
 
-<div class="panel panel-default">
-    <div class="panel-heading-small2"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseDVR3">
-            <h4 class="panel-title">
-                Users
-            </h4>
-        </a>
+            </div>
+            <div id="collapseDVR3" class="panel-collapse collapse in">
+                <div class="tree ">
 
-    </div>
-    <div id="collapseDVR3" class="panel-collapse collapse in">
-        <div class="tree ">
+                   <?php drawTree($users); ?>
 
-           <?php drawTree($users); ?>
-
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="col-md-6 user">
+        sadf
     </div>
 </div>
 
@@ -48,4 +58,21 @@ function drawTree($users) {
             e.stopPropagation();
         });
     });
+
+    $(document).ready(function(){
+        $('.more').click(function(){
+            var cbutton = $(this);
+            $(this).addClass('loading');
+            $.ajax({
+                type:'POST',
+                data:{id:$(this).children("input").val()},
+                url:'<?=Yii::app()->baseUrl?>/ajax/user',
+                success:function(result){
+                    $('.user').html(result);
+                    cbutton.removeClass("loading");
+                }
+            });
+        });
+    });
+
 </script>
