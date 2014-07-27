@@ -1,7 +1,12 @@
 <?php
 
-class AjaxController extends Controller
+class PartnerController extends Controller
 {
+	public function actionPartner()
+	{
+		$this->render('partner');
+	}
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
@@ -28,15 +33,4 @@ class AjaxController extends Controller
 		);
 	}
 	*/
-
-    public function actionUser() {
-        if(Yii::app()->request->isAjaxRequest) {
-
-           $user = User::model()->findByPk($_POST['id']);
-
-           $this->renderPartial('user', array('user'=>$user));
-
-            Yii::app()->end();
-        }
-    }
 }

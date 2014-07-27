@@ -33,7 +33,7 @@ class SiteController extends Controller
     public function accessRules() {
         return array(
             array('allow',
-                'actions'=>array('index', 'login', 'partners'),
+                'actions'=>array('index', 'login', 'partners', 'about', 'contacts'),
                 'users'=>array("*"),
             ),
             array('allow',
@@ -61,6 +61,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex($id = 0)
 	{
+        $this->layout = '//layouts/front';
         $model = User::model()->findByPk(1);
 
         //echo "<pre>";
@@ -100,6 +101,7 @@ class SiteController extends Controller
     }
 
     public function actionUser() {
+        $this->layout = '//layouts/front';
         $user = new User('search');
         $user->unsetAttributes(); // clear any default values
         if (isset($_GET['User']))
@@ -110,9 +112,11 @@ class SiteController extends Controller
 
 
     public function actionPartners(){
+        $this->layout = '//layouts/front';
         $partners = Partner::model()->findAll();
         $this->render('partners', array('partners'=>$partners));
     }
+
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -133,6 +137,7 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+        $this->layout = '//layouts/front';
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{
@@ -201,6 +206,7 @@ class SiteController extends Controller
             Yii::app()->end();
         }
     }
+
 
 
 }

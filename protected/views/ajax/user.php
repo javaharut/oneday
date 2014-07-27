@@ -8,5 +8,4 @@ $this->widget(
 
     )
 );
-
 ?>

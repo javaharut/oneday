@@ -38,7 +38,7 @@ function drawTree($users) {
         </div>
     </div>
     <div class="col-md-6 user">
-        sadf
+
     </div>
 </div>
 
