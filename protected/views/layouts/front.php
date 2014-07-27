@@ -18,14 +18,14 @@
 
                 <a class="navbar-brand" href="#"></a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
-                    <li><a href="#">Main</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="<?=Yii::app()->baseUrl?>/site/index">Main</a></li>
+                    <li><a href="<?=Yii::app()->baseUrl?>/page/about">About Us</a></li>
+                    <li><a href="<?=Yii::app()->baseUrl?>/site/partners">Partners</a></li>
+                    <li><a href="<?=Yii::app()->baseUrl?>/site/contact">Contact</a></li>
+                    <li><a href="<?=Yii::app()->baseUrl?>/site/login">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -56,11 +56,9 @@
 </footer><!--/#footer-->
 
 <?php
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.js');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/bootstrap.min.js');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.isotope.min.js');
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.prettyPhoto.js');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/main.js');
+//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/main.js');
 
 ?>
 
