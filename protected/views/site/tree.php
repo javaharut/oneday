@@ -13,7 +13,6 @@ function drawTree($users) {
     }
     echo "</ul>\n";
 }
-
 ?>
 
 <div class="panel panel-default">
