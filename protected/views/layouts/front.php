@@ -31,6 +31,7 @@
                     <li><a href="<?=Yii::app()->baseUrl?>/site/partners">Partners</a></li>
                     <li><a href="<?=Yii::app()->baseUrl?>/site/contact">Contact</a></li>
                     <li><a href="<?=Yii::app()->baseUrl?>/site/login">Login</a></li>
+
                 </ul>
             </div>
         </div>

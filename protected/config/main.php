@@ -76,6 +76,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=oneday',
 			'emulatePrepare' => true,
+            //'initSQLs'=>array("set time_zone='+06:00';"),
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',

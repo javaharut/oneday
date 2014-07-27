@@ -36,6 +36,13 @@ class User extends CActiveRecord
 		return 'user';
 	}
 
+    public function beforeSave() {
+      /*  if ($this->isNewRecord)
+            $this->reg_date = Yii::app()->localtime->UTCNow;*/
+
+        return parent::beforeSave();
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -47,6 +54,8 @@ class User extends CActiveRecord
 			array('id, parent_id, balance, role', 'numerical', 'integerOnly'=>true, 'min'=>0),
 			array('name, lname, username, password, phone', 'length', 'max'=>255),
             array('id', 'unique'),
+            array('id', 'required'),  /*username, password*/
+
 			array('passport', 'length', 'max'=>20),
 			array('email', 'length', 'max'=>100),
             array('email','email'),
