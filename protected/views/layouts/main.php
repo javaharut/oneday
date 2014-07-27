@@ -27,20 +27,21 @@
                             array('label'=>'Contact', 'url'=>array('/site/contact')),
                             array('label'=>'New User', 'url'=>array('/site/createuser')),
                             array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                            array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)// Typical Yii menu items config
+                            array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                        array(
+                            'label' => 'Dropdown',
+                            'items' => array(
+                                array('label' => 'Item1', 'url' => '#')
+                            )
+                        ),// Typical Yii menu items config
                         )
                     )
                 )
             )
+
         ); ?>
-
-
 	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+
 
     <?php
         // echo "<pre>";
@@ -49,9 +50,7 @@
 
 	<?php echo $content; ?>
 
-	<div class="clear"></div>
-
-	<div id="footer">
+   	<div id="footer">
 		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>

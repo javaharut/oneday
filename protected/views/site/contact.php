@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
 </p>
 
-<div class="span-13">
+<div class="span-5">
 
 <?php /** @var TbActiveForm $form */
 $form = $this->beginWidget(
