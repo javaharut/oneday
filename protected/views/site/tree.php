@@ -2,15 +2,21 @@
     /* @var  $users  User[] */
 
     Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/tree.css");
+    Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/x/font-awesome.min.css");
 
 function drawTree($users) {
     echo "<ul>";
     foreach($users->users as $user) {
-        echo "<li><span><i class='glyphicon-minus'></i>  </span> <div class='label label-primary'> $user->username</div>
+        echo "<li><span><i class='glyphicon-minus'></i>  </span> <div class='label label-primary'> </div>
                 <button type='button' class='btn btn-info btn-sm more'>
                     <input type ='hidden' value='$user->id' />
-                    <i class='glyphicon glyphicon-list'></i>
-                </button>\n";
+                    $user->id - $user->username
+               </button>\n";
+        if(Yii::app()->user->role == User::ADMIN) {
+            echo "<button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>";
+        }
+
+
         if(!empty($user->users))
             drawTree($user);
         echo "</li>\n";
