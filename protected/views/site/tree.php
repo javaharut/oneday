@@ -6,7 +6,7 @@
 function drawTree($users) {
     echo "<ul>";
     foreach($users->users as $user) {
-        echo "<li><span><i class='glyphicon-minus'></i> $user->username </span>
+        echo "<li><span><i class='glyphicon-minus'></i>  </span> <div class='label label-primary'> $user->username</div>
                 <button type='button' class='btn btn-info btn-sm more'>
                     <input type ='hidden' value='$user->id' />
                     <i class='glyphicon glyphicon-list'></i>
@@ -29,7 +29,7 @@ function drawTree($users) {
 
             </div>
             <div id="collapseDVR3" class="panel-collapse collapse in">
-                <div class="tree ">
+                <div class="tree">
 
                    <?php drawTree($users); ?>
 
@@ -52,6 +52,9 @@ function drawTree($users) {
                 $(this).attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus').removeClass('glyphicon-minus');
             } else {
                 children.show('fast');
+                children.each(function(){
+                    $(this).removeAttr("style");
+                })
                 $(this).attr('title', 'Collapse this branch').find(' > i').addClass('glyphicon-minus').removeClass('glyphicon-plus');
             }
             e.stopPropagation();
