@@ -5,29 +5,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="en" />
     <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/css/x/main.css" type="text/css" />
-    <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl?>/css/x/font-awesome.min.css" type="text/css" />
+
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
-
-<!-------------------------------Header------------------------------>
 <div class="head_wrapper">
+</div>
+<!-----Navigation------>
+<div class="nav_wrapper">
 <div class="" >
 <?php
 $this->widget(
     'booster.widgets.TbNavbar',
     array(
         'brand' => false,
-        'fixed' => true,
+        'fixed' => false,
         'fluid' => true,
         'items' => array(
             array(
                 'class' => 'booster.widgets.TbMenu',
                 'type' => 'navbar',
                 'items' => array(
-                    array('label' => 'Главное', 'icon' => 'glyphicon glyphicon-home', 'url' => 'site/index', 'active' => false),
+                    array('label' => 'Главное', 'icon' => 'glyphicon glyphicon-home', 'url' => 'site/index', ),
                     array('label' => 'Партнеры', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => 'site/partners'),
                     array('label' => 'Наша история', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => 'site/history'),
                     array('label' => 'Контакты', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => 'site/contact'),
@@ -42,14 +43,7 @@ $this->widget(
 </div>
 
 </div>
-<!-------------------------------Slider------------------------------>
-            <div class="slider_wrapper">
-                <div class="" style="background-color: #006600">
-
-
-                </div>
-            </div>
-<!-------------------------------Content------------------------------>
+<!----Content------>
 <div class="cont_wrapper">
         <div class="content">
                                     <?php echo $content; ?>
@@ -57,18 +51,15 @@ $this->widget(
 </div>
 
 
-<!-------------------------------Footer------------------------------>
+<!---Footer----->
 <div class="footer_wrapper">
     <div id="footer">
-
-    &copy; 2013 <a target="_blank" href="http://onedayclub.com/" title="OneDay in Town Club">OneDayClub.com</a>. All Rights Reserved.<br>Site Developers : Harut Margaryan , MheR Paruyryan
-
+    &copy; <?php echo date('Y'); ?> <a target="_blank" href="http://onedayclub.com/" title="OneDay in Town Club">OneDayClub.com</a>. All Rights Reserved.<br>Site Developers : Harut Margaryan , MheR Paruyryan
     </div>
 </div>
 
 <?php
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.isotope.min.js');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.prettyPhoto.js');
+
 //Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/main.js');
 
 ?>
