@@ -9,7 +9,8 @@ Yii::setPathOfAlias('booster', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../ext
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'One Day in Town Club',
+	'name'=>'One Day',
+    'language'=>'ru',
 
 	'preload'=>array('log', 'booster'),
 

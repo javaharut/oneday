@@ -11,55 +11,60 @@
 </head>
 
 <body>
-<header id="header">
-    <div class="container">
-        <div id="navbar" class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">MheR</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"></a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#main-slider"><i class="icon-home"></i></a></li>
-                    <li><a href="<?=Yii::app()->baseUrl?>/site/index">Main</a></li>
-                    <li><a href="<?=Yii::app()->baseUrl?>/page/about">About Us</a></li>
-                    <li><a href="<?=Yii::app()->baseUrl?>/site/partners">Partners</a></li>
-                    <li><a href="<?=Yii::app()->baseUrl?>/site/contact">Contact</a></li>
-                    <li><a href="<?=Yii::app()->baseUrl?>/site/login">Login</a></li>
 
-                </ul>
+<!-------------------------------Header------------------------------>
+<div class="head_wrapper">
+<div class="" >
+<?php
+$this->widget(
+    'booster.widgets.TbNavbar',
+    array(
+        'brand' => false,
+        'fixed' => true,
+        'fluid' => true,
+        'items' => array(
+            array(
+                'class' => 'booster.widgets.TbMenu',
+                'type' => 'navbar',
+                'items' => array(
+                    array('label' => 'Главное', 'icon' => 'glyphicon glyphicon-home', 'url' => 'site/index', 'active' => false),
+                    array('label' => 'Партнеры', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => 'site/partners'),
+                    array('label' => 'Наша история', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => 'site/history'),
+                    array('label' => 'Контакты', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => 'site/contact'),
+                    array('label' => 'Логин', 'icon' => 'glyphicon glyphicon-lock', 'url' => 'site/login',  ),
+                )
+            )
+        )
+    )
+);
+?>
+
+</div>
+
+</div>
+<!-------------------------------Slider------------------------------>
+            <div class="slider_wrapper">
+                <div class="" style="background-color: #006600">
+
+
+                </div>
             </div>
+<!-------------------------------Content------------------------------>
+<div class="cont_wrapper">
+        <div class="content">
+                                    <?php echo $content; ?>
         </div>
+</div>
+
+
+<!-------------------------------Footer------------------------------>
+<div class="footer_wrapper">
+    <div id="footer">
+
+    &copy; 2013 <a target="_blank" href="http://onedayclub.com/" title="OneDay in Town Club">OneDayClub.com</a>. All Rights Reserved.<br>Site Developers : Harut Margaryan , MheR Paruyryan
+
     </div>
-</header><!--/#header-->
-
-<section id="main-slider" >
-
-
-</section><!--/#main-slider-->
-
-<section id="services">
-    <div class="container">
-        <div class="box first">
-            <?php echo $content; ?>
-        </div><!--/.box-->
-    </div><!--/.container-->
-</section><!--/#services-->
-
-
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-                            &copy; 2013 <a target="_blank" href="http://onedayclub.com/" title="OneDay in Town Club">OneDayClub.com</a>. All Rights Reserved.<br>Site Developers : Harut Margaryan , MheR Paruyryan
-
-                    </div>
-    </div>
-</footer><!--/#footer-->
+</div>
 
 <?php
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/jquery.isotope.min.js');

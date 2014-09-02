@@ -10,7 +10,7 @@
 	<?php echo $form->textFieldGroup($model,'id',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
 
 
-    <?php $list = CHtml::listData(User::model()->findAll(),'id','username');?>
+    <?php $list = CHtml::listData(User::model()->findAll(),'id','id');?>
 
 
 <?php echo $form->select2Group($model,'parent_id',array(

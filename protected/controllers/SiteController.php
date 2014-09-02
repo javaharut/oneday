@@ -111,7 +111,6 @@ class SiteController extends Controller
         $this->render('user',array('user'=>$user));
     }
 
-
     public function actionPartners(){
         $this->layout = '//layouts/front';
         $partners = Partner::model()->findAll();

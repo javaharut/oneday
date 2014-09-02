@@ -9,11 +9,17 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Login</h1>
+<div class="">
+    <h1><span class="title"> Аутентификация </span> </h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+    <legend></legend>
 
-<div class="span-3">
+</div>
+
+<div class="clearfix"></div>
+
+<div >
+    <div class="col-lg-4 pull-left">
 <?php
 /** @var TbActiveForm $form */
 $form = $this->beginWidget(
@@ -45,4 +51,7 @@ unset($form);
 
 ?>
 
-</div><!-- form -->
+</div>
+</div>
+
+<div class="clearfix"></div>
