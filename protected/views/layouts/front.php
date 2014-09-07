@@ -28,10 +28,10 @@ $this->widget(
                 'type' => 'navbar',
                 'items' => array(
                     array('label' => 'ԳԼԽԱՎՈՐ ԷՋ', 'icon' => 'glyphicon glyphicon-home', 'active'=> false, 'url' => Yii::app()->request->baseUrl, ),
-                    array('label' => 'ԳՈՐԾՆԿԵՐՆԵՐ', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => 'site/partners'),
-                    array('label' => 'ՊԱՏՄՈՒԹՅՈՒՆ', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => 'history'),
-                    array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => 'site/contact'),
-                    array('label' => 'ՄՈՒՏՔ', 'icon' => 'glyphicon glyphicon-lock', 'url' => 'site/login' , 'visible'=>false),
+                    array('label' => 'ԳՈՐԾՆԿԵՐՆԵՐ', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => CHtml::normalizeUrl(array('site/partners'))),
+                    array('label' => 'ՊԱՏՄՈՒԹՅՈՒՆ', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => CHtml::normalizeUrl(array('site/history'))),
+                    array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => CHtml::normalizeUrl(array('site/contact'))),
+                    array('label' => 'ՄՈՒՏՔ', 'icon' => 'glyphicon glyphicon-lock', 'url' => CHtml::normalizeUrl(array('site/login')) , 'visible'=>false),
 
                 )
             )
@@ -46,7 +46,7 @@ $this->widget(
 <!----Content------>
 <div class="cont_wrapper">
         <div class="content">
-                                    <?php echo $content; ?>
+                <?php echo $content; ?>
         </div>
 </div>
 

@@ -11,6 +11,7 @@
 <body>
     <?php  $this->widget('booster.widgets.TbNavbar', array(
             'brand' => 'One Day',
+            'brandUrl' => CHtml::normalizeUrl(array('site/tree')),
             'fixed' => false,
             'fluid' => true, // <-- This dysplays some title on the left
             //'type' => 'inverse',
@@ -19,15 +20,14 @@
                     'class' => 'booster.widgets.TbMenu',
                     'type' => 'navbar',
                     'items' => array(
-                        array('label'=>'Users', 'url'=>array('/site/tree')),
-                        array('label'=>'New User', 'url'=>array('/site/createuser')),
-                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                        array(
-                            'label' => 'Dropdown',
-                            'items' => array(
-                                array('label' => 'Item1', 'url'=>'#'))
-                        )
+                        array('label'=>'Օգտատերերի Ծառը', 'url'=>CHtml::normalizeUrl(array('site/tree'))),
+                        array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser'))),
+                        array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1'))),
+                        array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1'))),
+                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/update/1'))),
+                        array('label'=>'Մուտք', 'url'=>CHtml::normalizeUrl(array('/site/login')), 'visible'=>Yii::app()->user->isGuest),
+                        array('label'=>'Ելք ('.Yii::app()->user->name.')', 'url'=>CHtml::normalizeUrl(array('/site/logout')), 'visible'=>!Yii::app()->user->isGuest),
+
                     ),// Typical Yii menu items config
 
                 )
@@ -46,8 +46,8 @@
 	<?php echo $content; ?>
 
    	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
+		&copy; <?php echo date('Y'); ?> Կայքի անունը՝ OneDay.org <br/>
+		Բոլոր Իրավունքները Պաշտպանված Են.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 

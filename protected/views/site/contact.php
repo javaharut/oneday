@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 
 Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places");
-Yii::app()->clientScript->registerScriptFile("http://maps.google.com/maps/api/js?sensor=false");
+//Yii::app()->clientScript->registerScriptFile("http://maps.google.com/maps/api/js?sensor=false");
 Yii::app()->clientScript->registerCssFile("http://code.google.com/apis/maps/documentation/javascript/examples/default.css");
 
 $this->pageTitle=Yii::app()->name . ' - Հետադարձ կապ';
@@ -182,8 +182,8 @@ $this->breadcrumbs=array(
                 var map = new google.maps.Map(document.getElementById("map1"),
                     mapOptions);
                 marker.setMap(map);
-                map.mapTypes.set('map_style', styledMap);
-                map.setMapTypeId('map_style');
+               // map.mapTypes.set('map_style', styledMap);
+               // map.setMapTypeId('map_style');
 
             }
 

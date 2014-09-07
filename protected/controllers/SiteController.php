@@ -112,11 +112,24 @@ class SiteController extends Controller
     }
 
     public function actionPartners(){
-        $this->layout = '//layouts/front';
-        $partners = Partner::model()->findAll();
-        $this->render('partners', array('partners'=>$partners));
-    }
+    $this->layout = '//layouts/front';
+    $model = Partner::model()->findByPk(1);
+    $this->render('partners', array('model'=>$model));
 
+    /*echo "<pre>";
+    print_r($model);
+    exit;*/
+}
+
+    public function actionHistory(){
+        $this->layout = '//layouts/front';
+        $model = History::model()->findByPk(1);
+        $this->render('history', array('model'=>$model));
+
+        /*echo "<pre>";
+        print_r($model);
+        exit;*/
+    }
 
 	/**
 	 * This is the action to handle external exceptions.
