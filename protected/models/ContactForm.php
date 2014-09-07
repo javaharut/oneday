@@ -17,17 +17,17 @@ class ContactForm extends CFormModel
 	/**
 	 * Declares the validation rules.
 	 */
-	public function rules()
-	{
-		return array(
-			// name, email, subject and body are required
-			array('name, email, dateField, subject, body', 'required'),
-			// email has to be a valid email address
-			array('email', 'email'),
-			// verifyCode needs to be entered correctly
-			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
-		);
-	}
+    public function rules()
+    {
+        return array(
+            // name, email, subject and body are required
+            array('name, email, subject, body, dateField', 'required'),
+            // email has to be a valid email address
+            array('email', 'email'),
+            // verifyCode needs to be entered correctly
+            array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+        );
+    }
 
 	/**
 	 * Declares customized attribute labels.

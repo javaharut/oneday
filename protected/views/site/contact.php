@@ -67,7 +67,7 @@ $this->breadcrumbs=array(
             Հարցերի եւ առաջարկների դեպքում դուք կարող եք գրել կամ զանգահարել մեզ նշված էլ. փոստի հասցեով և հեռախոսահամարներով:
         </h4>
 
-        <legend></legend>
+
         <?php echo $form->textFieldGroup(
             $model,
             'name',
