@@ -11,9 +11,7 @@
 </head>
 
 <body>
-<!--<div class="head_wrapper">
-    <div class="oneday">OneDay</div>
-</div>-->
+
 <!-----Navigation------>
 <div class="nav_wrapper">
 <div class="" >
@@ -29,11 +27,12 @@ $this->widget(
                 'class' => 'booster.widgets.TbMenu',
                 'type' => 'navbar',
                 'items' => array(
-                    array('label' => 'Главное', 'icon' => 'glyphicon glyphicon-home', 'active'=> false, 'url' => Yii::app()->request->baseUrl, ),
-                    array('label' => 'Партнеры', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => 'site/partners'),
-                    array('label' => 'Наша история', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => 'history'),
-                    array('label' => 'Контакты', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => 'site/contact'),
-                    array('label' => 'Логин', 'icon' => 'glyphicon glyphicon-lock', 'url' => 'login',  ),
+                    array('label' => 'ԳԼԽԱՎՈՐ ԷՋ', 'icon' => 'glyphicon glyphicon-home', 'active'=> false, 'url' => Yii::app()->request->baseUrl, ),
+                    array('label' => 'ԳՈՐԾՆԿԵՐՆԵՐ', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => 'site/partners'),
+                    array('label' => 'ՊԱՏՄՈՒԹՅՈՒՆ', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => 'history'),
+                    array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => 'site/contact'),
+                    array('label' => 'ՄՈՒՏՔ', 'icon' => 'glyphicon glyphicon-lock', 'url' => 'site/login' , 'visible'=>false),
+
                 )
             )
         )
@@ -57,7 +56,7 @@ $this->widget(
     <div id="footer">
 
 
-    &copy; <?php echo date('Y'); ?> « ODay.com — КОМПАНИЯ ПО ............................. » <br > Все права защищены.
+    &copy; <?php echo date('Y'); ?> « OneDay.org  » <br > ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
     </div>
 </div>
 

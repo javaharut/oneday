@@ -38,11 +38,11 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			'verifyCode'=>'Verification Code',
-            'name'=>'Имя',
-            'email'=>'Эл.Адрес',
-            'dateField'=>'Дата',
-            'subject'=>'Тема',
-            'body'=>'Сообщение',
+            'name'=>'Անուն',
+            'email'=>'Էլ.Փոստ',
+            'dateField'=>'Ամսաթիվ',
+            'subject'=>'Թեմա',
+            'body'=>'Նամակ',
 		);
 	}
 }

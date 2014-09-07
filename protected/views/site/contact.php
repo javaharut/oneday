@@ -7,12 +7,12 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
 Yii::app()->clientScript->registerScriptFile("http://maps.google.com/maps/api/js?sensor=false");
 Yii::app()->clientScript->registerCssFile("http://code.google.com/apis/maps/documentation/javascript/examples/default.css");
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Հետադարձ կապ';
 $this->breadcrumbs=array(
     'Contact',
 );
 ?>
-<h1><span class="title"> Contact Us </span> </h1>
+<h1><span class="title"> ՀԵՏԱԴԱՐՁ ԿԱՊ </span> </h1>
 
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
@@ -27,15 +27,15 @@ $this->breadcrumbs=array(
 
 <ul class="pull-left" id="contact_list">
 
-    <li id="list_contact"><span class="glyphicon glyphicon-home"></span>  Адрес : Республика Армения , улица Маршала Баграмяна 2 / 87</li>
-    <li id="list_contact"><span class="glyphicon glyphicon-phone"></span>  Телефон: +(374)90-93-14 </li>
+    <li id="list_contact"><span class="glyphicon glyphicon-home"></span>  Հասցե : Հայաստանի Հանրապետություն , ք. Երևան</li>
+    <li id="list_contact"><span class="glyphicon glyphicon-phone"></span>  Հեռախոս: +(374)90-93-14 </li>
     <!--<li id="list_contact"><span class="glyphicon glyphicon-eye-open"></span>  Skype : PanosyanArtCentre </li>-->
-    <li id="list_contact"><span class="glyphicon glyphicon-envelope"></span>  E-mail  : PanosyanArtCentre@gmail.com</li>
+    <li id="list_contact"><span class="glyphicon glyphicon-envelope"></span>  Էլ.Հասցե  : PanosyanArtCentre@gmail.com</li>
 </ul>
 
 <div class="clearfix"></div>
 
-<legend>Карта</legend>
+<legend>Քարտեզ</legend>
 
 <div id="map1" class="map">
 
@@ -63,11 +63,11 @@ $this->breadcrumbs=array(
     <fieldset>
 
 
-        <p>
-            Если у Вас есть вопросы, задайте их мне. Спасибо.
-        </p>
+        <h4>
+            Հարցերի եւ առաջարկների դեպքում դուք կարող եք գրել կամ զանգահարել մեզ նշված էլ. փոստի հասցեով և հեռախոսահամարներով:
+        </h4>
 
-        <legend>Контактная форма</legend>
+        <legend></legend>
         <?php echo $form->textFieldGroup(
             $model,
             'name',
@@ -137,13 +137,13 @@ $this->breadcrumbs=array(
 
                 'buttonType' => 'submit',
                 'context' => 'primary',
-                'label' => 'Отправить'
+                'label' => 'Ուղարկել'
             )
         ); ?>
 
         <?php $this->widget(
             'booster.widgets.TbButton',
-            array('buttonType' => 'reset', 'label' => 'Сброс' , 'context' => 'danger',)
+            array('buttonType' => 'reset', 'label' => 'Ջնջել' , 'context' => 'danger',)
         );
         $this->endWidget();
         unset($form);
@@ -167,7 +167,7 @@ $this->breadcrumbs=array(
 
                 var mapOptions = {
                     center: myLocation,
-                    zoom: 16,
+                    zoom: 15,
                     mapTypeControlOptions: {
                         mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
                     }
