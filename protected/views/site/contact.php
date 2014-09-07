@@ -3,6 +3,10 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
+Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places");
+Yii::app()->clientScript->registerScriptFile("http://maps.google.com/maps/api/js?sensor=false");
+Yii::app()->clientScript->registerCssFile("http://code.google.com/apis/maps/documentation/javascript/examples/default.css");
+
 $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array(
     'Contact',
@@ -23,15 +27,21 @@ $this->breadcrumbs=array(
 
 <ul class="pull-left" id="contact_list">
 
-    <li id="list_contact"><span class="glyphicon glyphicon-home"></span>  Адрес : Республика Армения , Котайкская область , c.Аргел (Лусакерт)</li>
+    <li id="list_contact"><span class="glyphicon glyphicon-home"></span>  Адрес : Республика Армения , улица Маршала Баграмяна 2 / 87</li>
     <li id="list_contact"><span class="glyphicon glyphicon-phone"></span>  Телефон: +(374)90-93-14 </li>
-    <li id="list_contact"><span class="glyphicon glyphicon-eye-open"></span>  Skype : PanosyanArtCentre </li>
+    <!--<li id="list_contact"><span class="glyphicon glyphicon-eye-open"></span>  Skype : PanosyanArtCentre </li>-->
     <li id="list_contact"><span class="glyphicon glyphicon-envelope"></span>  E-mail  : PanosyanArtCentre@gmail.com</li>
 </ul>
 
 <div class="clearfix"></div>
 
+<legend>Карта</legend>
 
+<div id="map1" class="map">
+
+</div>
+
+<div class="clearfix"></div>
 
 
 <div class="contact">
@@ -52,10 +62,12 @@ $this->breadcrumbs=array(
 
     <fieldset>
 
-        <legend>Legend</legend>
+
         <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+            Если у Вас есть вопросы, задайте их мне. Спасибо.
         </p>
+
+        <legend>Контактная форма</legend>
         <?php echo $form->textFieldGroup(
             $model,
             'name',
@@ -141,5 +153,59 @@ $this->breadcrumbs=array(
 
         <?php endif; ?>
     </fieldset>
+
+
+
+
+
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+
+            function init_map1() {
+                var myLocation = new google.maps.LatLng(40.190124, 44.514582);
+
+                var mapOptions = {
+                    center: myLocation,
+                    zoom: 16,
+                    mapTypeControlOptions: {
+                        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                    }
+                };
+                var marker = new google.maps.Marker({
+                    position: myLocation,
+                    animation:google.maps.Animation.BOUNCE,
+                    title: "Property Location",
+
+                    /*icon: '<?=Yii::app()->baseUrl?>/css/images/pin.png'*/
+                });
+                var map = new google.maps.Map(document.getElementById("map1"),
+                    mapOptions);
+                marker.setMap(map);
+                map.mapTypes.set('map_style', styledMap);
+                map.setMapTypeId('map_style');
+
+            }
+
+            init_map1();
+
+
+        });
+    </script>
+
+    <style>
+        .map {
+            min-width: 100px;
+            min-height: 300px;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 10px;
+            border: 3px solid #67abb3;
+        }
+
+    </style>
+
+
 </div>
 

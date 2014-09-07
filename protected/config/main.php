@@ -34,6 +34,8 @@ return array(
             ),
         ),
 
+        'cms',
+
 	),
 
 	// application components

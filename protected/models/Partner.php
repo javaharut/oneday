@@ -6,11 +6,7 @@
  * The followings are the available columns in table 'partner':
  * @property integer $id
  * @property string $title
- * @property string $title_ru
- * @property string $title_en
  * @property string $desc
- * @property string $desc_ru
- * @property string $desc_en
  * @property string $img
  * @property string $url
  */
@@ -32,12 +28,11 @@ class Partner extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id', 'numerical', 'integerOnly'=>true),
-			array('title, title_ru, title_en, img, url', 'length', 'max'=>255),
-			array('desc, desc_ru, desc_en', 'safe'),
+			array('title, img, url', 'length', 'max'=>255),
+			array('desc', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, title_ru, title_en, desc, desc_ru, desc_en, img, url', 'safe', 'on'=>'search'),
+			array('id, title, desc, img, url', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,11 +55,7 @@ class Partner extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => 'Title',
-			'title_ru' => 'Title Ru',
-			'title_en' => 'Title En',
 			'desc' => 'Desc',
-			'desc_ru' => 'Desc Ru',
-			'desc_en' => 'Desc En',
 			'img' => 'Img',
 			'url' => 'Url',
 		);
@@ -90,11 +81,7 @@ class Partner extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('title_ru',$this->title_ru,true);
-		$criteria->compare('title_en',$this->title_en,true);
 		$criteria->compare('desc',$this->desc,true);
-		$criteria->compare('desc_ru',$this->desc_ru,true);
-		$criteria->compare('desc_en',$this->desc_en,true);
 		$criteria->compare('img',$this->img,true);
 		$criteria->compare('url',$this->url,true);
 

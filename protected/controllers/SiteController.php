@@ -62,11 +62,11 @@ class SiteController extends Controller
 	public function actionIndex($id = 0)
 	{
         $this->layout = '//layouts/front';
-        $model = User::model()->findByPk(1);
+        $model = Main::model()->findByPk(1);
 
-        //echo "<pre>";
-//        print_r($model);
-//        exit;
+        /*echo "<pre>";
+        print_r($model);
+        exit;*/
 
         // renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
