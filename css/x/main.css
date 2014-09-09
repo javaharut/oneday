@@ -136,7 +136,7 @@ h6 {
 
 
 .navbar-default .navbar-nav > li > a {
-   font-size: 20px;
+   font-size: 18px;
     display: block;
     text-align: center;
     color: #555555!important;
@@ -184,7 +184,7 @@ h6 {
 
 
     color: #ffffff;
-    font-family: monospace, verdana, Arial, Helvetica, sans-serif;
+    font-family: "Georgia", Times New Roman, Times, serif;
     font-weight: bold;
     font-size: 16px;
     text-align: center ;

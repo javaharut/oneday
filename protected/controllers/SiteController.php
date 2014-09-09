@@ -61,7 +61,9 @@ class SiteController extends Controller
 	 */
 	public function actionIndex($id = 0)
 	{
+        $this->pageTitle = 'Գլխավոր էջ';
         $this->layout = '//layouts/front';
+
         $model = Main::model()->findByPk(1);
 
         /*echo "<pre>";
@@ -111,7 +113,9 @@ class SiteController extends Controller
         $this->render('user',array('user'=>$user));
     }
 
-    public function actionPartners(){
+    public function actionPartners()
+    {
+    $this->pageTitle = 'Գործնկերներ';
     $this->layout = '//layouts/front';
     $model = Partner::model()->findByPk(1);
     $this->render('partners', array('model'=>$model));
@@ -121,7 +125,9 @@ class SiteController extends Controller
     exit;*/
 }
 
-    public function actionHistory(){
+    public function actionHistory()
+    {
+        $this->pageTitle = 'Մեր պատմությունը';
         $this->layout = '//layouts/front';
         $model = History::model()->findByPk(1);
         $this->render('history', array('model'=>$model));
@@ -136,12 +142,14 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
+        //$this->layout = "";
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
 				echo $error['message'];
 			else
-				$this->render('error', $error);
+                $this->redirect(array("site/index"));
+				//$this->renderPartial('error', $error);
 		}
 	}
 
@@ -150,6 +158,7 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+        $this->pageTitle = 'Հետադարձ կապ';
         $this->layout = '//layouts/front';
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
@@ -177,6 +186,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+        $this->pageTitle = 'Մուտք';
         $this->layout = '//layouts/front';
 		$model=new LoginForm;
 
@@ -193,7 +203,7 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+				$this->redirect(array('main/update/1'));
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));

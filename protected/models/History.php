@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'history':
  * @property integer $id
  * @property string $title
- * @property string $content
+ * @property string $desc
  */
 class History extends CActiveRecord
 {
@@ -28,10 +28,10 @@ class History extends CActiveRecord
 		return array(
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
-			array('content', 'safe'),
+			array('desc', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, content', 'safe', 'on'=>'search'),
+			array('id, title, desc', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +54,7 @@ class History extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => 'Title',
-			'content' => 'Content',
+			'desc' => 'Desc',
 		);
 	}
 
@@ -78,7 +78,7 @@ class History extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('content',$this->content,true);
+		$criteria->compare('desc',$this->desc,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

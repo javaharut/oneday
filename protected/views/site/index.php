@@ -2,12 +2,12 @@
 /* @var $this SiteController */
 /* @var $data Main */
 
-$this->pageTitle=Yii::app()->name;
+
+$this->pageTitle=Yii::app()->name . ' - Գլխավոր էջ';
 ?>
-<div class="cont_wrapper">
+
 
 <h1><span class="title"><?=$model->title?></span> </h1>
 
 <legend></legend>
-    <?=CHtml::encode($model->desc)?>
-</div>
+    <?=$model->desc?>

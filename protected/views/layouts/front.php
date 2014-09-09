@@ -31,7 +31,7 @@ $this->widget(
                     array('label' => 'ԳՈՐԾՆԿԵՐՆԵՐ', 'icon' => 'glyphicon glyphicon-briefcase', 'url' => CHtml::normalizeUrl(array('site/partners'))),
                     array('label' => 'ՊԱՏՄՈՒԹՅՈՒՆ', 'icon' => 'glyphicon glyphicon-list-alt', 'url' => CHtml::normalizeUrl(array('site/history'))),
                     array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'icon' => 'glyphicon glyphicon-map-marker', 'url' => CHtml::normalizeUrl(array('site/contact'))),
-                    array('label' => 'ՄՈՒՏՔ', 'icon' => 'glyphicon glyphicon-lock', 'url' => CHtml::normalizeUrl(array('site/login')) , 'visible'=>false),
+                    array('label' => 'ՄՈՒՏՔ', 'icon' => 'glyphicon glyphicon-lock', 'url' => CHtml::normalizeUrl(array('site/login')) , ),
 
                 )
             )
@@ -56,15 +56,10 @@ $this->widget(
     <div id="footer">
 
 
-    &copy; <?php echo date('Y'); ?> « OneDay.org  » <br > ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
+        www.OneDayClub.org &copy; <?php echo date('Y'); ?> ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
     </div>
 </div>
 
-<?php
-
-//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/css/js/main.js');
-
-?>
 
 
 </body>

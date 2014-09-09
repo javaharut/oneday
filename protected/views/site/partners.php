@@ -2,13 +2,14 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
+$this->pageTitle=Yii::app()->name . ' - Գործնկերներ';
 ?>
 
 
 <div>
-    <h1><span class="title"><?=CHtml::encode($model->title)?></span> </h1>
+    <h1><span class="title"><?=$model->title?></span> </h1>
 
     <legend></legend>
-    <?=CHtml::encode($model->desc)?>
+    <?=$model->desc?>
 
 </div>
