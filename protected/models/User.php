@@ -17,7 +17,10 @@
  * @property string $password
  * @property integer $role
  *
+ *
+ *
  * The followings are the available model relations:
+ * @property Transaction[] $transactions
  * @property User $parent
  * @property User[] $users
  */
@@ -74,6 +77,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'transactions' => array(self::HAS_MANY, 'Transaction', 'user_id'),
 			'parent' => array(self::BELONGS_TO, 'User', 'parent_id'),
 			'users' => array(self::HAS_MANY, 'User', 'parent_id'),
 		);
