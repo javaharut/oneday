@@ -39,4 +39,31 @@ class AjaxController extends Controller
             Yii::app()->end();
         }
     }
+
+    public function actionDeleteuser() {
+        if(Yii::app()->request->isAjaxRequest) {
+
+            $user = User::model()->findByPk($_POST['id']);
+            if($user->delete())
+                echo "1";
+            else
+                echo "0";
+
+            Yii::app()->end();
+        }
+    }
+
+
+    public function actionTransaction() {
+        if(Yii::app()->request->isAjaxRequest) {
+
+            $user = User::model()->findByPk($_POST['id']);
+
+            $this->renderPartial('transaction', array('user'=>$user));
+
+            Yii::app()->end();
+        }
+    }
+
+
 }

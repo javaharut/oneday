@@ -48,7 +48,6 @@
    	<div id="footer">
 		&copy; <?php echo date('Y'); ?> Կայքի անունը՝ OneDay.org <br/>
 		Բոլոր Իրավունքները Պաշտպանված Են.<br/>
-		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

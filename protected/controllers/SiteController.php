@@ -93,6 +93,24 @@ class SiteController extends Controller
         ));
     }
 
+    public function actionEdituser($id = 0) {
+        $model = User::model()->findByPk($id);
+
+        // Performing ajax validation
+        $this->performAjaxValidation($model);
+
+        if (isset($_POST['User'])) {
+            $model->attributes = $_POST['User'];
+            if ($model->save())
+                $this->redirect(array('site/tree'));
+            Yii::app()->user->setFlash('user_added','User has been created successfully!');
+        }
+
+        $this->render('createuser', array(
+            'model' => $model,
+        ));
+    }
+
     public function actionTree() {
 
         $criteria = new CDbCriteria();

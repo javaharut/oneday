@@ -6,26 +6,39 @@
 
 function drawTree($users) {
     echo "<ul>";
-    foreach($users->users as $user) {
-        echo "<li><span><i class='glyphicon-minus'></i>  </span> <div class='label label-primary'> </div>
-                <button type='button' class='btn btn-info btn-sm more'>
-                    <input type ='hidden' value='$user->id' />
-                    $user->id - $user->username
-               </button>\n";
-        if(Yii::app()->user->role == User::ADMIN) {
-            echo "<button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>";
-        }
+    foreach($users->users as $user) :?>
+        <li><span><i class='glyphicon-minus'></i></span>
+            <button type='button' class='btn btn-info btn-sm more'>
+                <input type ='hidden' value='<?=$user->id?>' />
+                <?=$user->id?>
+           </button>
+            <button  type='button' class='btn btn-success transaction' data-value="<?=$user->id?>">
+                <i class="glyphicon glyphicon-usd"></i>
+            </button>
+            <a href="<?=Yii::app()->baseUrl?>/site/edituser/<?=$user->id?>">
+                <button  type='button' class='btn btn-primary'>
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </button>
+            </a>
+            <?php if(empty($user->users)):?>
+                <button type="button" class="btn btn-danger remove" data-value="<?=$user->id?>">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </button>
+            <?php endif ?>
+        <?php if(Yii::app()->user->role == User::ADMIN):?>
+            <button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>
+        <?php endif ?>
 
 
-        if(!empty($user->users))
+       <?php if(!empty($user->users))
             drawTree($user);
-        echo "</li>\n";
-    }
-    echo "</ul>\n";
-}
-?>
+        ?>
+        </li>
+    <?php endforeach ?>
+    </ul>
+<?php } ?>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading-small2"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseDVR3">
                     <h4 class="panel-title">
@@ -43,7 +56,7 @@ function drawTree($users) {
             </div>
         </div>
     </div>
-    <div class="col-md-6 user">
+    <div class="col-md-4 user">
 
     </div>
 </div>
@@ -68,7 +81,7 @@ function drawTree($users) {
     });
 
     $(document).ready(function(){
-        $('.more').click(function(){
+        $(document).on('click', '.more', function(){
             var cbutton = $(this);
             $(this).addClass('loading');
             $.ajax({
@@ -81,6 +94,36 @@ function drawTree($users) {
                 }
             });
         });
+
+        $(document).on('click', '.remove', function(){
+            $.ajax({
+                type:'POST',
+                data:{id:$(this).attr('data-value')},
+                url:'<?=Yii::app()->baseUrl?>/ajax/deleteuser',
+                success:function(result){
+                    if(result == "1"){
+                        alert("User deleted successfully");
+                        location.reload();
+                    }
+                    else
+                        alert("Something is wrong please try again");
+                }
+            });
+        });
+
+    });
+
+    $(document).on('click', '.transaction', function(){
+        $.ajax({
+            type:'POST',
+            data:{id:$(this).attr('data-value')},
+            url:'<?=Yii::app()->baseUrl?>/ajax/transaction',
+            success:function(result){
+                alert(result);
+            }
+        });
+    });
+
     });
 
 </script>
