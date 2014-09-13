@@ -165,10 +165,12 @@ class AjaxController extends Controller
         if(Yii::app()->request->isAjaxRequest) {
 
             $criteria = new CDbCriteria();
-            $criteria->addCondition("user_id", $_POST['id']);
+            $criteria->condition = 'user_id=:id';
+            $criteria->params = array(':id'=>$_POST['id']);
             $criteria->order = "date DESC";
 
             $transactions = Transaction::model()->findAll($criteria);
+
 
             $this->renderPartial('history', array('transactions'=>$transactions));
 
