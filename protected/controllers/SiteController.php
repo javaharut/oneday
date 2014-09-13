@@ -107,7 +107,7 @@ class SiteController extends Controller
             Yii::app()->user->setFlash('user_added','User has been created successfully!');
         }
 
-        $this->render('createuser', array(
+        $this->render('edituser', array(
             'model' => $model,
         ));
     }

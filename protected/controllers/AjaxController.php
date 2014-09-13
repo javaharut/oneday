@@ -2,40 +2,39 @@
 
 class AjaxController extends Controller
 {
-    // Uncomment the following methods and override them if needed
-    /*
-    public function filters()
-    {
-        // return the filter configuration for this controller, e.g.:
-        return array(
-            'inlineFilterName',
-            array(
-                'class'=>'path.to.FilterClass',
-                'propertyName'=>'propertyValue',
-            ),
-        );
-    }
+	// Uncomment the following methods and override them if needed
+	/*
+	public function filters()
+	{
+		// return the filter configuration for this controller, e.g.:
+		return array(
+			'inlineFilterName',
+			array(
+				'class'=>'path.to.FilterClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
 
-    public function actions()
-    {
-        // return external action classes, e.g.:
-        return array(
-            'action1'=>'path.to.ActionClass',
-            'action2'=>array(
-                'class'=>'path.to.AnotherActionClass',
-                'propertyName'=>'propertyValue',
-            ),
-        );
-    }
-    */
+	public function actions()
+	{
+		// return external action classes, e.g.:
+		return array(
+			'action1'=>'path.to.ActionClass',
+			'action2'=>array(
+				'class'=>'path.to.AnotherActionClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
+	*/
 
-    public function actionUser()
-    {
-        if (Yii::app()->request->isAjaxRequest) {
+    public function actionUser() {
+        if(Yii::app()->request->isAjaxRequest) {
 
-            $user = User::model()->findByPk($_POST['id']);
+           $user = User::model()->findByPk($_POST['id']);
 
-            $this->renderPartial('user', array('user' => $user));
+           $this->renderPartial('user', array('user'=>$user));
 
             Yii::app()->end();
         }
@@ -157,6 +156,21 @@ class AjaxController extends Controller
             $user->balance -= $amount;
             if($user->save());
             echo "<div class='row'><div class='col-md-8'>id-{$user->id} balance-{$amount}</div></div>";
+
+            Yii::app()->end();
+        }
+    }
+
+    public function actionHistory() {
+        if(Yii::app()->request->isAjaxRequest) {
+
+            $criteria = new CDbCriteria();
+            $criteria->addCondition("user_id", $_POST['id']);
+            $criteria->order = "date DESC";
+
+            $transactions = Transaction::model()->findAll($criteria);
+
+            $this->renderPartial('history', array('transactions'=>$transactions));
 
             Yii::app()->end();
         }

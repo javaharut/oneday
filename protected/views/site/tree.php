@@ -32,6 +32,9 @@ function drawTree($users) {
             <button  type='button' class='btn btn-success transaction' data-value="<?=$user->id?>">
                 <i class="glyphicon glyphicon-usd"></i>
             </button>
+            <button  type='button' class='btn btn-default history' data-value="<?=$user->id?>">
+                <i class="glyphicon glyphicon-list"></i>
+            </button>
             <a href="<?=Yii::app()->baseUrl?>/site/edituser/<?=$user->id?>">
                 <button  type='button' class='btn btn-primary'>
                     <i class="glyphicon glyphicon-pencil"></i>
@@ -42,9 +45,10 @@ function drawTree($users) {
                     <i class="glyphicon glyphicon-remove"></i>
                 </button>
             <?php endif ?>
-        <?php if(Yii::app()->user->role == User::ADMIN):?>
+
+       <!-- <?php /*if(Yii::app()->user->role == User::ADMIN):*/?>
             <button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>
-        <?php endif ?>
+        --><?php /*endif */?>
 
 
        <?php if(!empty($user->users))
@@ -137,6 +141,17 @@ function drawTree($users) {
                 url:'<?=Yii::app()->baseUrl?>/ajax/transaction',
                 success:function(result){
                     //alert(result);
+                    $('.user').html(result);
+                }
+            });
+        });
+
+        $(document).on('click', '.history', function(){
+            $.ajax({
+                type:'POST',
+                data:{id:$(this).attr('data-value')},
+                url:'<?=Yii::app()->baseUrl?>/ajax/history',
+                success:function(result){
                     $('.user').html(result);
                 }
             });
