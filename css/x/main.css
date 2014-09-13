@@ -54,6 +54,14 @@ body {
     max-width: 1200px;
 }
 
+.title {
+    color: #65b3fe;
+    font-weight: bold;
+    font-family: 'Arial Unicode MS', Arial, Helvetica, Sans-Serif;
+
+}
+
+
 .content {
     background: url("../images/content-pattern.png");
     border-left: 4px solid #428bca;
@@ -61,14 +69,10 @@ body {
     padding: 40px;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
-    font-family: 'Arial Unicode MS', Arial, Helvetica, Sans-Serif;
+    font-family: Sylfaen, Arial ;
     font-size: 16px;
 }
 
-.title {
-    color: #65b3fe;
-    font-weight: bold;
-}
 
 .footer_wrapper {
     width: 80%;
@@ -127,6 +131,7 @@ body {
     -ms-transition: background 0.4s ease-in-out;
     -o-transition: background 0.4s ease-in-out;
     transition: background 0.4s ease-in-out;
+    border-radius: 2px;
 
 }
 
@@ -160,7 +165,7 @@ body {
     color: #ffffff;
     font-family: 'Arial Unicode MS', Arial, Helvetica, Sans-Serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
 
 }
@@ -177,4 +182,10 @@ body {
     text-decoration: none;
     list-style: none;
     color: #383838;
+}
+
+.footer_title {
+
+    font-family: 'Microsoft Sans Serif' , Arial, Helvetica, Verdana;
+
 }

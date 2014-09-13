@@ -87,7 +87,7 @@
 <!---Footer----->
 <div class="footer_wrapper">
     <div id="footer">
-        www.OneDayClub.org &copy; <?php echo date('Y'); ?> ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
+        <span  class="footer_title">www.OneDayClub.org </span> &copy; <?php echo date('Y'); ?> ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
     </div>
 </div>
 
