@@ -83,7 +83,8 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-		),
+            'initSQLs'=>array("set time_zone='+04:00';"),
+        ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

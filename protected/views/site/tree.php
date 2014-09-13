@@ -4,6 +4,23 @@
     Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/tree.css");
     Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/x/font-awesome.min.css");
 
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id'=>'infoDialog',
+// additional javascript options for the dialog plugin
+    'options'=>array(
+        'title'=>'Info',
+        'autoOpen'=>false,
+        'buttons' => array(
+            array('text'=>'OK','click'=> 'js:function(){$(this).dialog("close");}'),
+        ),
+    ),
+));
+
+echo '<div id="dialog_content">Opened dialog</div>';
+
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+
+
 function drawTree($users) {
     echo "<ul>";
     foreach($users->users as $user) :?>
@@ -61,6 +78,8 @@ function drawTree($users) {
     </div>
 </div>
 
+
+
 <script>
     $(function () {
         $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
@@ -111,19 +130,26 @@ function drawTree($users) {
             });
         });
 
-    });
-
-    $(document).on('click', '.transaction', function(){
-        $.ajax({
-            type:'POST',
-            data:{id:$(this).attr('data-value')},
-            url:'<?=Yii::app()->baseUrl?>/ajax/transaction',
-            success:function(result){
-                alert(result);
-            }
+        $(document).on('click', '.transaction', function(){
+            $.ajax({
+                type:'POST',
+                data:{id:$(this).attr('data-value')},
+                url:'<?=Yii::app()->baseUrl?>/ajax/transaction',
+                success:function(result){
+                    //alert(result);
+                    $('.user').html(result);
+                }
+            });
         });
-    });
 
     });
+
+     var openDialog = function(text){
+                    $("#dialog_content").html(text);
+                    $("#infoDialog").dialog("open");
+                    return false;
+     }
+
+
 
 </script>
