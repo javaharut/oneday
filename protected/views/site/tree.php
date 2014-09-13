@@ -1,33 +1,35 @@
 <?php
-    /* @var  $users  User[] */
+/* @var  $users  User[] */
 
-    Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/tree.css");
-    Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl."/css/x/font-awesome.min.css");
+Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl . "/css/tree.css");
+Yii::app()->getclientscript()->registerCssFile(Yii::app()->baseUrl . "/css/x/font-awesome.min.css");
 
-function drawTree($users) {
+function drawTree($users)
+{
     echo "<ul>";
-    foreach($users->users as $user) {
+    foreach ($users->users as $user) {
         echo "<li><span><i class='glyphicon-minus'></i>  </span> <div class='label label-primary'> </div>
                 <button type='button' class='btn btn-info btn-sm more'>
                     <input type ='hidden' value='$user->id' />
                     $user->id - $user->username
                </button>\n";
-        if(Yii::app()->user->role == User::ADMIN) {
+        if (Yii::app()->user->role == User::ADMIN) {
             echo "<button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>";
         }
 
 
-        if(!empty($user->users))
+        if (!empty($user->users))
             drawTree($user);
         echo "</li>\n";
     }
     echo "</ul>\n";
 }
+
 ?>
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading-small2"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseDVR3">
+            <div class="panel-heading-small2"><a data-toggle="collapse" data-parent="#accordion" href="#collapseDVR3">
                     <h4 class="panel-title">
                         Users
                     </h4>
@@ -37,7 +39,7 @@ function drawTree($users) {
             <div id="collapseDVR3" class="panel-collapse collapse in">
                 <div class="tree">
 
-                   <?php drawTree($users); ?>
+                    <?php drawTree($users); ?>
 
                 </div>
             </div>
@@ -58,7 +60,7 @@ function drawTree($users) {
                 $(this).attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus').removeClass('glyphicon-minus');
             } else {
                 children.show('fast');
-                children.each(function(){
+                children.each(function () {
                     $(this).removeAttr("style");
                 })
                 $(this).attr('title', 'Collapse this branch').find(' > i').addClass('glyphicon-minus').removeClass('glyphicon-plus');
@@ -67,15 +69,15 @@ function drawTree($users) {
         });
     });
 
-    $(document).ready(function(){
-        $('.more').click(function(){
+    $(document).ready(function () {
+        $('.more').click(function () {
             var cbutton = $(this);
             $(this).addClass('loading');
             $.ajax({
-                type:'POST',
-                data:{id:$(this).children("input").val()},
-                url:'<?=Yii::app()->baseUrl?>/ajax/user',
-                success:function(result){
+                type: 'POST',
+                data: {id: $(this).children("input").val()},
+                url: '<?=Yii::app()->baseUrl?>/ajax/user',
+                success: function (result) {
                     $('.user').html(result);
                     cbutton.removeClass("loading");
                 }
