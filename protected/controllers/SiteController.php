@@ -134,19 +134,34 @@ class SiteController extends Controller
 
     public function actionPartners()
     {
-    $this->pageTitle = 'Գործնկերներ';
-    $this->layout = '//layouts/front';
-    $model = Partner::model()->findByPk(1);
-    $this->render('partners', array('model'=>$model));
 
-    /*echo "<pre>";
-    print_r($model);
-    exit;*/
+
+    $this->layout = '//layouts/front';
+    $model = Partner::model()->findAll();
+    $this->render('partners', array('model'=>$model));
+/*        echo "<pre>";
+        print_r($model);
+        exit;
+        Yii::app()->end();*/
+
 }
 
-    public function actionHistory()
+    public function actionPart()
     {
-        $this->pageTitle = 'Մեր պատմությունը';
+
+
+        $this->layout = '//layouts/front';
+/*        $model = Partner::model()->findAll();*/
+        $this->render('part' /*array('model'=>$model)*/);
+        /*        echo "<pre>";
+                print_r($model);
+                exit;
+                Yii::app()->end();*/ }
+
+
+        public function actionHistory()
+    {
+
         $this->layout = '//layouts/front';
         $model = History::model()->findByPk(1);
         $this->render('history', array('model'=>$model));

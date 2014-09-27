@@ -20,8 +20,11 @@ array('label'=>'Manage Partner','url'=>array('admin')),
 'attributes'=>array(
 		'id',
 		'title',
+		'partner_title',
 		'desc',
 		'img',
 		'url',
+		'lat',
+		'long',
 ),
 )); ?>

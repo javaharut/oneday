@@ -12,10 +12,10 @@
     <div class="form-group">
         <input class="form-control" placeholder="Amount" name="Transaction[amount]" id="amount" type="number" min="0">
     </div>
-    <button type="button" class="btn btn-success add" data-value="<?=$user->id?>">
+    <button type="button" class="btn btn-sm btn-success add" data-value="<?=$user->id?>">
         Add
     </button>
-    <button type="button" class="btn btn-default subtract" data-value="<?=$user->id?>">
+    <button type="button" class="btn btn-sm btn-default subtract" data-value="<?=$user->id?>">
         Remove
     </button>
 

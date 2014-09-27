@@ -8,9 +8,6 @@
  * @property integer $user_id
  * @property integer $amount
  * @property string $date
- *
- * The followings are the available model relations:
- * @property User $user
  */
 class Transaction extends CActiveRecord
 {
@@ -46,7 +43,6 @@ class Transaction extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 

@@ -12,7 +12,7 @@
 
 <!-----------Header------>
 <div class="head_wrapper">
-
+    <div class="pull-left"><img src="<?= Yii::app()->request->baseUrl ?>/css/images/oneday.png"></div>
 
 </div>
 
@@ -24,7 +24,7 @@
         $this->widget(
             'booster.widgets.TbNavbar',
             array(
-                'brand' => '<i class="glyphicon glyphicon-home"></i>',
+                'brand' => false,
                 'collapse' => true,
                 'fixed' => false,
                 'fluid' => true,
@@ -32,6 +32,7 @@
                     array(
                         'class' => 'booster.widgets.TbMenu',
                         'type' => 'navbar',
+
                         'items' => array(
                             array('label' => 'ԳԼԽԱՎՈՐ ԷՋ', 'url' => Yii::app()->request->baseUrl,),
                             array('label' => 'ԳՈՐԾԸՆԿԵՐՆԵՐ', 'url' => CHtml::normalizeUrl(array('site/partners'))),
@@ -41,40 +42,10 @@
 
                         ),
                     ),
-                    '<form class="navbar-form navbar-right">
-        		<div class="form-group">
-                    <input type="text" class="form-control" placeholder="Փնտրել կայքում">
-        		</div>
-                <button type="submit" class="btn btn-primary">Փնտրել</button>
-             </form>'
+
                 ),
             )
         );
-
-        /*$this->widget(
-            'booster.widgets.TbNavbar',
-            array(
-                'brand' => false,
-                'fixed' => false,
-                'fluid' => true,
-                'items' => array(
-                    array(
-                        'class' => 'booster.widgets.TbMenu',
-                        'type' => 'navbar',
-                        'items' => array(
-                            array('label' => 'Գլխավոր', 'url' => Yii::app()->request->baseUrl,),
-                            array('label' => 'Գործընկերներ', 'url' => CHtml::normalizeUrl(array('site/partners'))),
-                            array('label' => 'Պատմություն', 'url' => CHtml::normalizeUrl(array('site/history'))),
-                            array('label' => 'Հետադարձ կապ', 'url' => CHtml::normalizeUrl(array('site/contact'))),
-                            array('label' => 'Մուտք', 'url' => CHtml::normalizeUrl(array('site/login')),),
-
-
-                        )
-                    )
-                )
-            )
-
-        );*/
         ?>
     </div>
 </div>
@@ -84,10 +55,13 @@
         <?php echo $content; ?>
     </div>
 </div>
+
+<div class="clearfix"></div>
 <!---Footer----->
 <div class="footer_wrapper">
     <div id="footer">
-        <span  class="footer_title">www.OneDayClub.org </span> &copy; <?php echo date('Y'); ?> ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
+        <span class="footer_title">www.OneDayClub.org </span> &copy; <?php echo date('Y'); ?> ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ
+        ՊԱՇՏՊԱՆՎԱԾ ԵՆ.
     </div>
 </div>
 

@@ -9,27 +9,17 @@
 
 	<?php echo $form->textFieldGroup($model,'title',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
-<?php echo $form->ckEditorGroup(
-    $model,
-    'desc',
-    array(
-        'wrapperHtmlOptions' => array(
-            /* 'class' => 'col-sm-5', */
-        ),
-        'widgetOptions' => array(
-            'editorOptions' => array(
-                'fullpage' => 'js:true',
-                /* 'width' => '640', */
-                /* 'resize_maxWidth' => '640', */
-                /* 'resize_minWidth' => '320'*/
-            )
-        )
-    )
-); ?>
+	<?php echo $form->textFieldGroup($model,'partner_title',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
-	<?php /*echo $form->textFieldGroup($model,'img',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); */?><!--
+	<?php echo $form->textAreaGroup($model,'desc', array('widgetOptions'=>array('htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'span8')))); ?>
 
-	--><?php /*echo $form->textFieldGroup($model,'url',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); */?>
+	<?php echo $form->textFieldGroup($model,'img',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
+
+	<?php echo $form->textFieldGroup($model,'url',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
+
+	<?php echo $form->textFieldGroup($model,'lat',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
+
+	<?php echo $form->textFieldGroup($model,'long',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
 <div class="form-actions">
 	<?php $this->widget('booster.widgets.TbButton', array(
