@@ -78,8 +78,9 @@ body {
 
 .navbar {
     margin-bottom: 0px ! important;
-    border: 0px !important;
+
     /*border-radius: 2px !important;*/
+    border: 1px solid rgba(221, 221, 221, 0.73)!important;
 
 }
 

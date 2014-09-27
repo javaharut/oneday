@@ -22,20 +22,7 @@ $this->breadcrumbs = array(
 
 <?php else: ?>
 
-    <!--<ul class="pull-left" id="contact_list">
 
-        <li id="list_contact"><span class="glyphicon glyphicon-home"></span> Հասցե : Հայաստանի Հանրապետություն , ք.
-            Երևան
-        </li>
-        <li id="list_contact"><span class="glyphicon glyphicon-phone"></span> Հեռախոս: +(374)90-93-14</li>
-        <!--<li id="list_contact"><span class="glyphicon glyphicon-eye-open"></span>  Skype : PanosyanArtCentre </li>-->
-        <!--<li id="list_contact"><span class="glyphicon glyphicon-envelope"></span> Էլ.Հասցե : PanosyanArtCentre@gmail.com
-        </li>-->
-    </ul>-->
-
-    <div class="clearfix"></div>
-
-    <legend>Քարտեզ</legend>
 
     <div id="map1" class="map">
 
