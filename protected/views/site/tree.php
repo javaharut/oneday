@@ -18,6 +18,10 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 
 echo '<div id="dialog_content">Opened dialog</div>';
 
+/*echo "<pre>";
+print_r(Yii::app()->user->role);
+exit;*/
+
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 

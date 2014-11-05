@@ -16,7 +16,8 @@
  * @property string $username
  * @property string $password
  * @property integer $role
- *
+ * @property integer $pay_status
+ * @property double $moder_percent
  *
  *
  * The followings are the available model relations:
@@ -54,7 +55,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, parent_id, balance, role', 'numerical', 'integerOnly'=>true, 'min'=>0),
+			array('id, parent_id, balance, role, pay_status', 'numerical', 'integerOnly'=>true, 'min'=>0),
+            array('moder_percent', 'numerical'),
 			array('name, lname, username, password, phone', 'length', 'max'=>255),
             array('id', 'unique'),
             array('id', 'required'),  /*username, password*/
@@ -65,7 +67,11 @@ class User extends CActiveRecord
 			array('reg_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, parent_id, name, lname, phone, passport, email, reg_date, balance, username, password, role', 'safe', 'on'=>'search'),
+			array('id, parent_id, name, lname, phone, passport, email,
+			        reg_date, balance, username, password, role, pay_status,
+                    moder_percent',
+                    'safe',
+                    'on'=>'search'),
 		);
 	}
 
@@ -101,6 +107,8 @@ class User extends CActiveRecord
 			'username' => 'Login',
 			'password' => 'Password',
 			'role' => 'Role',
+            'pay_status' => 'Pay Status',
+            'moder_percent' => 'Moder Percent',
 		);
 	}
 
@@ -126,7 +134,7 @@ class User extends CActiveRecord
 		$criteria->compare('parent_id',$this->parent_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('lname',$this->lname,true);
-		$criteria->compare('phone',$this->phone);
+		$criteria->compare('phone',$this->phone, true);
 		$criteria->compare('passport',$this->passport,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('reg_date',$this->reg_date,true);
@@ -134,6 +142,8 @@ class User extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('role',$this->role);
+        $criteria->compare('pay_status',$this->pay_status);
+        $criteria->compare('moder_percent',$this->moder_percent);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

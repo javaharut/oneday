@@ -25,6 +25,7 @@
                         array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser'))),
                         array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1'))),
                         array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1'))),
+                        array('label'=>'Transactions', 'url'=>CHtml::normalizeUrl(array('transaction/admin'))),
                         array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/update/1'))),
                         array('label'=>'Մուտք', 'url'=>CHtml::normalizeUrl(array('/site/login')), 'visible'=>Yii::app()->user->isGuest),
                         array('label'=>'Ելք ('.Yii::app()->user->name.')', 'url'=>CHtml::normalizeUrl(array('/site/logout')), 'visible'=>!Yii::app()->user->isGuest),

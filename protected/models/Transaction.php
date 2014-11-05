@@ -76,7 +76,6 @@ class Transaction extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('amount',$this->amount);
@@ -84,7 +83,14 @@ class Transaction extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-		));
+            'sort'=>array(
+                'defaultOrder'=>'id DESC',
+            ),
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+
+        ));
 	}
 
 	/**
