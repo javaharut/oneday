@@ -76,7 +76,14 @@ return array(
 		),
 		// uncomment the following to use a MySQL database */
 
-
+      /*  'db' => array(
+            'connectionString' => 'mysql:host=localhost;dbname=onedaycl_club',
+            'emulatePrepare' => true,
+            //'initSQLs'=>array("set time_zone='+06:00';"),
+            'username' => 'onedaycl_admin',
+            'password' => 'vardanyan147896325',
+            'charset' => 'utf8',
+        ),*/
 
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=oneday',

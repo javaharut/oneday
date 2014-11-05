@@ -1,30 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "partner".
+ * This is the model class for table "category".
  *
- * The followings are the available columns in table 'partner':
+ * The followings are the available columns in table 'category':
  * @property integer $id
- * @property integer $category_id
- * @property string $keyword
  * @property string $title
- * @property string $text
  * @property string $img
- * @property string $x
- * @property string $y
- * @property string $url
+ * @property string $text
  *
  * The followings are the available model relations:
- * @property Category $category
+ * @property Partner[] $partners
  */
-class Partner extends CActiveRecord
+class Category extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'partner';
+		return 'category';
 	}
 
 	/**
@@ -35,12 +30,11 @@ class Partner extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category_id', 'numerical', 'integerOnly'=>true),
-			array('keyword, title, img, x, y, url', 'length', 'max'=>255),
+			array('title, img', 'length', 'max'=>255),
 			array('text', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, category_id, keyword, title, text, img, x, y, url', 'safe', 'on'=>'search'),
+			array('id, title, img, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +46,7 @@ class Partner extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'partners' => array(self::HAS_MANY, 'Partner', 'category_id'),
 		);
 	}
 
@@ -63,14 +57,9 @@ class Partner extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'category_id' => 'Category',
-			'keyword' => 'Keyword',
 			'title' => 'Title',
-			'text' => 'Text',
 			'img' => 'Img',
-			'x' => 'X',
-			'y' => 'Y',
-			'url' => 'Url',
+			'text' => 'Text',
 		);
 	}
 
@@ -93,14 +82,9 @@ class Partner extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('category_id',$this->category_id);
-		$criteria->compare('keyword',$this->keyword,true);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('text',$this->text,true);
 		$criteria->compare('img',$this->img,true);
-		$criteria->compare('x',$this->x,true);
-		$criteria->compare('y',$this->y,true);
-		$criteria->compare('url',$this->url,true);
+		$criteria->compare('text',$this->text,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -111,7 +95,7 @@ class Partner extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Partner the static model class
+	 * @return Category the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

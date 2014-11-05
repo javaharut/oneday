@@ -24,7 +24,7 @@
         $this->widget(
             'booster.widgets.TbNavbar',
             array(
-                'brand' => false,
+                'brand' => '<i class="glyphicon glyphicon-home"></i>',
                 'collapse' => true,
                 'fixed' => false,
                 'fluid' => true,

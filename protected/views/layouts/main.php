@@ -21,6 +21,7 @@
                     'type' => 'navbar',
                     'items' => array(
                         array('label'=>'Օգտատերերի Ծառը', 'url'=>CHtml::normalizeUrl(array('site/tree'))),
+                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/index'))),
                         array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser'))),
                         array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1'))),
                         array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1'))),

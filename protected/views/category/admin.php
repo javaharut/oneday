@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Partners'=>array('index'),
+	'Categories'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-array('label'=>'List Partner','url'=>array('index')),
-array('label'=>'Create Partner','url'=>array('create')),
+array('label'=>'List Category','url'=>array('index')),
+array('label'=>'Create Category','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-form').toggle();
 return false;
 });
 $('.search-form form').submit(function(){
-$.fn.yiiGridView.update('partner-grid', {
+$.fn.yiiGridView.update('category-grid', {
 data: $(this).serialize()
 });
 return false;
@@ -23,7 +23,7 @@ return false;
 ");
 ?>
 
-<h1>Manage Partners</h1>
+<h1>Manage Categories</h1>
 
 <p>
 	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -39,21 +39,14 @@ return false;
 </div><!-- search-form -->
 
 <?php $this->widget('booster.widgets.TbGridView',array(
-'id'=>'partner-grid',
+'id'=>'category-grid',
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
 		'id',
-		'category_id',
-		'keyword',
 		'title',
-		'text',
 		'img',
-		/*
-		'x',
-		'y',
-		'url',
-		*/
+		'text',
 array(
 'class'=>'booster.widgets.TbButtonColumn',
 ),

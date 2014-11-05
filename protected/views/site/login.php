@@ -55,8 +55,8 @@ $this->breadcrumbs = array(
 
 
     <div class="col-lg-6 pull-left" style="text-align: left">
-        <strong>Ինչպե՞ս օգտվել կայքից</strong>
-        <legend></legend>
+        <strong>Ինչպե՞ս օգտվել կայքից</strong><br>
+
         In AppController.php, you will have a default public function (method) called actionIndex. The purpose of this
         default method is to call (render) the /protected/views/app/index.php file (also created by gii for you).
         index.php is the file your users will see once they log in. That is the file you will want to modify to build

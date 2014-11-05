@@ -52,7 +52,7 @@ $this->pageTitle = Yii::app()->name . ' - Գլխավոր էջ';
 
 </div>
 
-<a href="<?= Yii::app()->request->baseUrl ?>/site/partners" class="btn btn-warning btn-lg pull-right" role="button">Գնալ հետ</a>
+<a href="<?= Yii::app()->request->baseUrl ?>/site/partners" class="btn btn-primary btn-lg pull-right" role="button">Գնալ հետ</a>
 
 
 <div class="clearfix"></div>
