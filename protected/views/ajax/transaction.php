@@ -11,10 +11,12 @@
 <form class="well form-inline" id="inlineForm" action="" method="post">
     <?php if(Yii::app()->user->role == User::ADMIN):?>
     <div class="form-group">
+        Percent
         <input class="form-control" placeholder="Percent" value="10" name="Transaction[percent]" id="percent" type="number" min="0">
     </div>
     <?php endif; ?>
     <div class="form-group">
+        Money
         <input class="form-control" placeholder="Amount" value="100" name="Transaction[amount]" id="amount" type="number" min="0">
     </div>
     <button type="button" class="btn btn-sm btn-success add" data-value="<?=$user->id?>">

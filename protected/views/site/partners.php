@@ -10,8 +10,6 @@ $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
     <div><a href="<?= Yii::app()->request->baseUrl ?>/site/partners/<?=$cats->id?>"><?= $cats->title ?></a></div>
 <?php endforeach; ?>
 
-
-
 <?php
 
 $this->widget('zii.widgets.CListView', array(
