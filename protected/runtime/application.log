@@ -10673,3 +10673,12 @@ Stack trace:
 REQUEST_URI=/oneday/css/x/font-awesome.min.css
 HTTP_REFERER=http://localhost/oneday/site/tree
 ---
+2014/11/05 08:51:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
