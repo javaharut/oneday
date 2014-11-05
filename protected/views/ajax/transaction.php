@@ -9,8 +9,13 @@
 </p>
 
 <form class="well form-inline" id="inlineForm" action="" method="post">
+    <?php if(Yii::app()->user->role == User::ADMIN):?>
     <div class="form-group">
-        <input class="form-control" placeholder="Amount" name="Transaction[amount]" id="amount" type="number" min="0">
+        <input class="form-control" placeholder="Percent" value="10" name="Transaction[percent]" id="percent" type="number" min="0">
+    </div>
+    <?php endif; ?>
+    <div class="form-group">
+        <input class="form-control" placeholder="Amount" value="100" name="Transaction[amount]" id="amount" type="number" min="0">
     </div>
     <button type="button" class="btn btn-success add" data-value="<?=$user->id?>">
         Add
@@ -25,10 +30,16 @@
     $(document).ready(function(){
         $('.add').click(function(){
 
+            var data = {id:$(this).attr('data-value'), amount:$('#amount').val()};
+
+            <?php if(Yii::app()->user->role == User::ADMIN):?>
+            data['percent'] = $("#percent").val();
+            <?php endif; ?>
+
             if($('#inlineForm')[0].checkValidity() == true && $('#amount').val() != "") {
                 $.ajax({
                     type:'POST',
-                    data:{id:$(this).attr('data-value'), amount:$('#amount').val()},
+                    data:data,
                     url:'<?=Yii::app()->baseUrl?>/ajax/addmoney',
                     success:function(result){
                         openDialog(result);

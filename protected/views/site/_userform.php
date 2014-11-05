@@ -36,6 +36,12 @@
 
     <?php echo $form->select2Group($model,'role',array('widgetOptions'=>array('data' => array(User::USER=>"User", User::MODER=>"Manager", User::ADMIN=>"Admin"),'htmlOptions'=>array('style'=>'width:100%','class'=>'span5')))); ?>
 
+    <?php if(Yii::app()->user->role == User::ADMIN): ?>
+
+        <?php echo $form->textFieldGroup($model,'moder_percent',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); ?>
+
+    <?php endif; ?>
+
 <div class="form-actions">
 	<?php $this->widget('booster.widgets.TbButton', array(
 			'buttonType'=>'submit',
@@ -45,3 +51,7 @@
 </div>
 
 <?php $this->endWidget(); ?>
+
+<br>
+<br>
+<br>

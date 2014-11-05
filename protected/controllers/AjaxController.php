@@ -68,73 +68,103 @@ class AjaxController extends Controller
     }
 
     public function actionAddmoney() {
-        if(Yii::app()->request->isAjaxRequest) {
-            $amount = $_POST['amount'];
-            $id = $_POST['id'];
-            $percent = 10;
-            $result = "";
+        try {
+            if(Yii::app()->request->isAjaxRequest) {
+                $amount = $_POST['amount'];
+                $id = $_POST['id'];
 
-            $transaction = new Transaction;
+                $percent = 10;
 
-            $transaction->date = new CDbExpression('NOW()');
+                if(Yii::app()->user->role == User::MODER) {
+                    $user = User::model()->findByPk(Yii::app()->user->id);
+                    $percent = $user->moder_percent;
+                }
+                else if(Yii::app()->user->role == User::ADMIN) {
+                    $percent = $_POST['percent'];
+                }
 
-            $transaction->amount = intval($amount);
-            $transaction->user_id = $id;
+                $result = "";
 
-            if($transaction->save()) {
-                $user = User::model()->findByPk($id);
-                $user->balance += intval($amount);
-                if($user->save())
-                    $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-{$amount}</div></div>";
-                if(!empty($user->parent)) {
-                   if(empty($user->parent->parent)) {
-                       $money =  intval($amount * $percent / 100);
-                       $user->parent->balance += $money;
-                       if($user->parent->save())
-                           $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
-                   }
-                    else {
-                        $half = $percent/2;
-                        $money = intval($amount * $half / 100);
-                        $user->parent->balance += $money;
-                        if($user->parent->save())
-                            $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
+                $transaction = new Transaction;
 
-                        $counter = $this->calculateCount($user->parent, 0) - 1;
+                $transaction->date = new CDbExpression('NOW()');
 
-                        //echo $counter;
+                $transaction->amount = intval($amount);
+                $transaction->user_id = $id;
 
-                        $tempuser = $user->parent;
-                        $sharedMoney =  intval(($amount * $half / 100 )/ $counter) ;
-
-                        do {
-                            $tempuser = $tempuser->parent;
-                            $tempuser->balance += intval($sharedMoney);
-                            if($tempuser->save())
-                                $result .= "<div class='row'><div class='col-md-8'>id-{$tempuser->id} balance-{$sharedMoney}</div></div>";
-                            /*if($tempuser->id == 1) {
-                                $check = User::model()->findByPk(1);
-                                $check->balance = 200;
-                                $check->save();
-                                print_r($check->save());
-                            }*/
+                if($transaction->save()) {
+                    $user = User::model()->findByPk($id);
+                    $user->balance += intval($amount);
+                    if($user->save())
+                        $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-{$amount}</div></div>";
+                    if(!empty($user->parent)) {
+                        if(empty($user->parent->parent)) {
+                            $money =  intval($amount * $percent / 100);
+                            $user->parent->balance += $money;
+                            if($user->parent->save())
+                                $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
                         }
-                        while($tempuser->id != 0);
-                    }
+                        else {
+                            $half = $percent/2;
+                            $money = intval($amount * $half / 100);
 
+                            if($user->pay_status == 1) {
+                                $user->balance += $money;
+                                if($user->save())
+                                    $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-{$money}</div></div>";
+
+                                $counter = $this->calculateCount($user, 0) - 1;
+
+                                //echo $counter;
+
+                                $tempuser = $user;
+                                $sharedMoney =  intval(($amount * $half / 100 )/ $counter) ;
+                            }
+                            else {
+                                $user->pay_status = 1;
+                                $user->parent->balance += $money;
+
+                                if($user->parent->save() && $user->save())
+                                    $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
+
+                                $counter = $this->calculateCount($user->parent, 0) - 1;
+
+                                //echo $counter;
+
+                                $tempuser = $user->parent;
+                                $sharedMoney =  intval(($amount * $half / 100 )/ $counter) ;
+                            }
+
+                            do {
+                                $tempuser = $tempuser->parent;
+                                $tempuser->balance += intval($sharedMoney);
+                                if($tempuser->save())
+                                    $result .= "<div class='row'><div class='col-md-8'>id-{$tempuser->id} balance-{$sharedMoney}</div></div>";
+                                /*if($tempuser->id == 1) {
+                                    $check = User::model()->findByPk(1);
+                                    $check->balance = 200;
+                                    $check->save();
+                                    print_r($check->save());
+                                }*/
+                            }
+                            while($tempuser->id != 0);
+                        }
+                    }
+                    else {
+                        echo "User Has no parent";
+                    }
                 }
                 else {
-                    echo "User Has no parent";
+                    echo "Transaction is not completed";
                 }
+
+                echo $result;
+
+                Yii::app()->end();
             }
-            else {
-                echo "Transaction is not completed";
-            }
-
-            echo $result;
-
-
-            Yii::app()->end();
+        }
+        catch(Exception $ex){
+            print_r($ex->getMessage() . $ex->getLine());
         }
     }
 
