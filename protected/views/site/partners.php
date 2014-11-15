@@ -16,8 +16,6 @@ $this->widget('zii.widgets.CListView', array(
     'dataProvider' => $dataprovider,
     'itemView' => '_partners',
 ));
-
-
 ?>
 
 <div class="clearfix"></div>

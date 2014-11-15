@@ -4,13 +4,10 @@
 /* @var $form CActiveForm */
 
 $this->pageTitle = Yii::app()->name . ' - Մուտք';
-$this->breadcrumbs = array(
-    'Login',
-);
 ?>
 
 <div class="">
-    <h1><span class="title"> Մուտք գործել կայք </span></h1>
+    <span class="title"> Մուտք գործել կայք </span>
 
     <legend></legend>
 

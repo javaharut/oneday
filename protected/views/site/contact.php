@@ -8,11 +8,9 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
 Yii::app()->clientScript->registerCssFile("http://code.google.com/apis/maps/documentation/javascript/examples/default.css");
 
 $this->pageTitle = Yii::app()->name . ' - Հետադարձ կապ';
-$this->breadcrumbs = array(
-    'Contact',
-);
+
 ?>
-    <h1><span class="title"> ՀԵՏԱԴԱՐՁ ԿԱՊ </span></h1>
+    <span class="title"> ՀԵՏԱԴԱՐՁ ԿԱՊ </span>
 
 <?php if (Yii::app()->user->hasFlash('contact')): ?>
 
