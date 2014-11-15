@@ -11022,3 +11022,349 @@ Stack trace:
 REQUEST_URI=/oneday/site/partners
 HTTP_REFERER=http://localhost/oneday/
 ---
+2014/11/15 09:28:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 12:07:02 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in C:\xampp\htdocs\oneday\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), '?? ?????? ?????...')
+#1 C:\xampp\htdocs\oneday\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\oneday\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\oneday\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\oneday\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\oneday\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('mypage')
+#8 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('user/mypage')
+#9 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/oneday/user/mypage
+---
+2014/11/15 12:07:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "create".' in C:\xampp\htdocs\oneday\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CController.php(270): CController->missingAction('create')
+#1 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('create')
+#2 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('user/create')
+#3 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/oneday/user/create
+---
+2014/11/15 12:07:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "my[age".' in C:\xampp\htdocs\oneday\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CController.php(270): CController->missingAction('my[age')
+#1 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('my[age')
+#2 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('user/my[age')
+#3 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/oneday/user/my[age
+---
+2014/11/15 12:19:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 12:28:44 [error] [exception.CException] exception 'CException' with message 'Контроллер UserController не может найти представление "history".' in C:\xampp\htdocs\oneday\framework\web\CController.php:878
+Stack trace:
+#0 C:\xampp\htdocs\oneday\protected\views\user\mypage.php(41): CController->renderPartial('history', Array)
+#1 C:\xampp\htdocs\oneday\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\oneday\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\oneday\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\oneday\framework\web\CController.php(782): CController->renderPartial('mypage', Array, true)
+#5 C:\xampp\htdocs\oneday\protected\controllers\UserController.php(62): CController->render('mypage', Array)
+#6 C:\xampp\htdocs\oneday\framework\web\actions\CInlineAction.php(49): UserController->actionMypage()
+#7 C:\xampp\htdocs\oneday\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\oneday\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\oneday\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\oneday\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\oneday\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\oneday\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('mypage')
+#16 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('user/mypage')
+#17 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/oneday/user/mypage
+---
+2014/11/15 12:30:08 [error] [exception.CException] exception 'CException' with message 'Контроллер UserController не может найти представление "..ajax/history".' in C:\xampp\htdocs\oneday\framework\web\CController.php:878
+Stack trace:
+#0 C:\xampp\htdocs\oneday\protected\views\user\mypage.php(45): CController->renderPartial('..ajax/history', Array)
+#1 C:\xampp\htdocs\oneday\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\oneday\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\oneday\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\oneday\framework\web\CController.php(782): CController->renderPartial('mypage', Array, true)
+#5 C:\xampp\htdocs\oneday\protected\controllers\UserController.php(62): CController->render('mypage', Array)
+#6 C:\xampp\htdocs\oneday\framework\web\actions\CInlineAction.php(49): UserController->actionMypage()
+#7 C:\xampp\htdocs\oneday\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\oneday\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\oneday\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\oneday\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\oneday\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\oneday\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('mypage')
+#16 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('user/mypage')
+#17 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/oneday/user/mypage
+---
+2014/11/15 12:33:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 12:37:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 12:59:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 13:31:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 13:31:12 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in C:\xampp\htdocs\oneday\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\oneday\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\oneday\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\oneday\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\oneday\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\oneday\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('print')
+#9 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('transaction/pri...')
+#10 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/oneday/transaction/print
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 13:31:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 13:32:22 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Некорректный запрос.' in C:\xampp\htdocs\oneday\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\oneday\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\oneday\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\oneday\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\oneday\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\oneday\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\oneday\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(282): CController->run('print')
+#9 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('transaction/pri...')
+#10 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/oneday/transaction/print/
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 13:48:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:11:41 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:11:42 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:12:24 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:12:30 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:12:31 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:16:28 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:16:29 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:17:46 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:18:23 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:18:30 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (85)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:19:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:23:54 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:23:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:24:41 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:24:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:25:08 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:25:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:26:32 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:26:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:29:07 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:29:46 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:29:48 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (111)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:29:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:30:08 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (114)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:30:09 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (111)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:30:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:30:26 [warning] [application] Не удалось присвоить небезопасный атрибут "newpassword" класса "User".
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (277)
+in C:\xampp\htdocs\oneday\protected\controllers\SiteController.php (111)
+in C:\xampp\htdocs\oneday\index.php (13)
+2014/11/15 14:31:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/15 14:33:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---

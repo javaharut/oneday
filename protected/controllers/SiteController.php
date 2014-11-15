@@ -80,11 +80,18 @@ class SiteController extends Controller
     {
         $model = new User;
 
+        $model->password = '';
         // Performing ajax validation
         $this->performAjaxValidation($model);
 
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
+
+            var_dump( $model->password);
+            exit;
+
+
+
             $model->reg_date = new CDbExpression('NOW()');
             if ($model->save())
                 $this->redirect('tree');
@@ -117,11 +124,16 @@ class SiteController extends Controller
 
     public function actionTree()
     {
-
         $criteria = new CDbCriteria();
         $criteria->order = "parent_id asc";
 
-        $users = User::model()->findByPk(0);
+
+        if(Yii::app()->user->role == User::ADMIN){
+            $users = User::model()->findByPk(0);
+        }
+        else {
+            $users = User::model()->findByPk(Yii::app()->user->id);
+        }
 
         $this->render('tree', array('users' => $users));
     }

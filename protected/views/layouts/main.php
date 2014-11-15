@@ -20,15 +20,32 @@
                     'class' => 'booster.widgets.TbMenu',
                     'type' => 'navbar',
                     'items' => array(
-                        array('label'=>'Օգտատերերի Ծառը', 'url'=>CHtml::normalizeUrl(array('site/tree'))),
-                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/index'))),
-                        array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser'))),
-                        array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1'))),
-                        array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1'))),
-                        array('label'=>'Transactions', 'url'=>CHtml::normalizeUrl(array('transaction/admin'))),
-                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/update/1'))),
-                        array('label'=>'Մուտք', 'url'=>CHtml::normalizeUrl(array('/site/login')), 'visible'=>Yii::app()->user->isGuest),
-                        array('label'=>'Ելք ('.Yii::app()->user->name.')', 'url'=>CHtml::normalizeUrl(array('/site/logout')), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'Օգտատերերի Ծառը', 'url'=>CHtml::normalizeUrl(array('site/tree')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/index')),
+                        'visible'=>(Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1')),
+                        ),
+
+                        array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Transactions', 'url'=>CHtml::normalizeUrl(array('transaction/admin')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/update/1')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN )),
+
+                        array('label'=>'Մուտք', 'url'=>CHtml::normalizeUrl(array('/site/login')),
+                            'visible'=>Yii::app()->user->isGuest),
+
+                        array('label'=>'Ելք ('.Yii::app()->user->name.')', 'url'=>CHtml::normalizeUrl(array('/site/logout')),
+                            'visible'=>!Yii::app()->user->isGuest),
 
                     ),// Typical Yii menu items config
 

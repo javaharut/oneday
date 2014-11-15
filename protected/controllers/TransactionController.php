@@ -19,8 +19,11 @@ class TransactionController extends Controller
 		);
 	}
 
+    public function actionPrint($id) {
+        $user = User::model()->findByPk($id)->with('transactions');
 
-
+        $this->renderPartial('../ajax/history', array('transactions'=>$user->transactions, 'user'=>$user));
+    }
 
 	/**
 	 * Displays a particular model.

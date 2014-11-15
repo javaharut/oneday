@@ -1,6 +1,9 @@
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'user-form',
 	'enableAjaxValidation'=>true,
+    'htmlOptions'=>array(
+
+    ),
 )); ?>
 
 <p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -16,7 +19,7 @@
 <?php echo $form->select2Group($model,'parent_id',array(
                                 'widgetOptions'=>array(
                                 'data' => $list,
-                                'htmlOptions'=>array('style'=>'width:100%','class'=>'span5')))); ?>
+                                'htmlOptions'=>array('style'=>'width:100%','class'=>'span5', )))); ?>
 
 	<?php echo $form->textFieldGroup($model,'name',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
@@ -32,7 +35,7 @@
 
 	<?php echo $form->textFieldGroup($model,'username',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off')))); ?>
 
-	<?php echo $form->passwordFieldGroup($model,'password',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off')))); ?>
+	<?php echo $form->passwordFieldGroup($model,'newpassword',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off',)))); ?>
 
     <?php echo $form->select2Group($model,'role',array('widgetOptions'=>array('data' => array(User::USER=>"User", User::MODER=>"Manager", User::ADMIN=>"Admin"),'htmlOptions'=>array('style'=>'width:100%','class'=>'span5')))); ?>
 

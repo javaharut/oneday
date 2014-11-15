@@ -8,22 +8,35 @@
  * @property integer $user_id
  * @property integer $amount
  * @property string $date
+ * @property integer $type
+ *
+ * The followings are the available model relations:
+ * @property User $user
  */
 class Transaction extends CActiveRecord
 {
+    const  ADD_MONEY = 1;
+    const REMOVE_MONEY = 2;
+
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
-	{
+	public function tableName() {
 		return 'transaction';
 	}
+
+
+    public function getctype() {
+        if($this->type == Transaction::ADD_MONEY)
+            return "Add money";
+        else
+            return "Remove money";
+    }
 
 	/**
 	 * @return array validation rules for model attributes.
 	 */
-	public function rules()
-	{
+	public function rules() {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
@@ -38,23 +51,23 @@ class Transaction extends CActiveRecord
 	/**
 	 * @return array relational rules.
 	 */
-	public function relations()
-	{
+	public function relations() {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return array(
 			'id' => 'ID',
 			'user_id' => 'User',
 			'amount' => 'Amount',
+            'type' => 'Type',
 			'date' => 'Date',
 		);
 	}
@@ -71,14 +84,14 @@ class Transaction extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
-	{
+	public function search() {
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('amount',$this->amount);
+        $criteria->compare('type',$this->type);
 		$criteria->compare('date',$this->date,true);
 
 		return new CActiveDataProvider($this, array(
@@ -99,8 +112,7 @@ class Transaction extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Transaction the static model class
 	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
+	public static function model($className=__CLASS__) {
+        return parent::model($className);
 	}
 }

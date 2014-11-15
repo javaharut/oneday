@@ -91,6 +91,7 @@ class AjaxController extends Controller
 
                 $transaction->amount = intval($amount);
                 $transaction->user_id = $id;
+                $transaction->type = Transaction::ADD_MONEY;
 
                 if($transaction->save()) {
                     $user = User::model()->findByPk($id);
@@ -184,6 +185,15 @@ class AjaxController extends Controller
             $amount = intval($_POST['amount']);
             $user = User::model()->findByPk($_POST['id']);
             $user->balance -= $amount;
+
+            $transaction = new Transaction;
+
+            $transaction->date = new CDbExpression('NOW()');
+
+            $transaction->amount = intval($amount);
+            $transaction->user_id = $id;
+            $transaction->type = Transaction::ADD_MONEY;
+
             if($user->save());
             echo "<div class='row'><div class='col-md-8'>id-{$user->id} balance-{$amount}</div></div>";
 
@@ -200,7 +210,6 @@ class AjaxController extends Controller
             $criteria->order = "date DESC";
 
             $transactions = Transaction::model()->findAll($criteria);
-
 
             $this->renderPartial('history', array('transactions'=>$transactions));
 
