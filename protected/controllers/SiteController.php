@@ -34,7 +34,7 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions' => array('index', 'login', 'partners', 'about', 'contact','partner','history','room','changepassword','logout'),
+                'actions' => array('index', 'login', 'partners', 'about', 'contact', 'partner', 'history', 'room', 'changepassword', 'logout'),
                 'users' => array("*"),
             ),
             array('allow',
@@ -74,7 +74,7 @@ class SiteController extends Controller
 
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index', array('model' => $model,'history'=>$history ));
+        $this->render('index', array('model' => $model, 'history' => $history));
     }
 
     public function actionCreateuser()
@@ -88,9 +88,8 @@ class SiteController extends Controller
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
 
-            var_dump( $model->password);
+            var_dump($model->password);
             exit;
-
 
 
             $model->reg_date = new CDbExpression('NOW()');
@@ -129,10 +128,9 @@ class SiteController extends Controller
         $criteria->order = "parent_id asc";
 
 
-        if(Yii::app()->user->role == User::ADMIN){
+        if (Yii::app()->user->role == User::ADMIN) {
             $users = User::model()->findByPk(0);
-        }
-        else {
+        } else {
             $users = User::model()->findByPk(Yii::app()->user->id);
         }
 
@@ -153,56 +151,57 @@ class SiteController extends Controller
     /*echo "<pre>";
                    print_r($model);
                    exit;*/
-/*
-    public function actionPartners(){
+    /*
+        public function actionPartners(){
 
 
 
 
-        $cat = Category::model()->findAll();
-        $dataprovider = Partner::model()->search();
-        $this->render('partners', array('partner' => $partner,'cat' => $cat, 'dataprovider'=>$dataprovider));
+            $cat = Category::model()->findAll();
+            $dataprovider = Partner::model()->search();
+            $this->render('partners', array('partner' => $partner,'cat' => $cat, 'dataprovider'=>$dataprovider));
 
-    }*/
+        }*/
 
 
-/*    public function actionPartner($id)
-    {
-        $partner = Partner::model()->findByPk($id);
-        $this->render('_partners', array('partner'=>$partner));
-    }*/
-
+    /*    public function actionPartner($id)
+        {
+            $partner = Partner::model()->findByPk($id);
+            $this->render('_partners', array('partner'=>$partner));
+        }*/
 
 
     public function actionPartners($id)
     {
         $this->layout = '//layouts/front';
         $partners = Partner::model()->findByPk($id);
-        $this->render('_partners', array('partners'=>$partners));
+        $this->render('_partners', array('partners' => $partners));
     }
-    public function actionPartner(){
+
+    public function actionPartner()
+    {
         $this->layout = '//layouts/front';
-        $criteria=new CDbCriteria();
-        $count=Partner::model()->count($criteria);
-        $pages=new CPagination($count);
+        $criteria = new CDbCriteria();
+        $count = Partner::model()->count($criteria);
+        $pages = new CPagination($count);
         // results per page
-        $pages->pageSize=10;
+        $pages->pageSize = 10;
         $pages->applyLimit($criteria);
         $partner = Partner::model()->findAll($criteria);
         // renders the view file 'protected/views/site/index.php'
         // using the default layouts 'protected/views/layouts/main.php'
-        $this->render('partner', array('partner'=>$partner,'pages' => $pages));
+        $this->render('partner', array('partner' => $partner, 'pages' => $pages));
     }
 
     public function actionHistory()
     {
 
         $this->layout = '//layouts/front';
-        $criteria=new CDbCriteria();
-        $count=History::model()->count($criteria);
-        $pages=new CPagination($count);
+        $criteria = new CDbCriteria();
+        $count = History::model()->count($criteria);
+        $pages = new CPagination($count);
         // results per page
-        $pages->pageSize=6;
+        $pages->pageSize = 6;
         $pages->applyLimit($criteria);
         $model = History::model()->findAll($criteria);
         $this->render('history', array('model' => $model, 'pages' => $pages));
@@ -219,38 +218,36 @@ class SiteController extends Controller
 
         $this->layout = '//layouts/front';
         $room = User::model()->find(Yii::app()->user->getId());
-
         $this->render('room', array('room' => $room));
 
 
     }
 
-
     public function actionChangepassword($id)
     {
         $model = new User();
 
-        $model = User::model()->findByAttributes(array('id'=>$id));
+        $model = User::model()->findByAttributes(array('id' => $id));
         $model->setScenario('changePwd');
 
 
-        if(isset($_POST['User'])){
+        if (isset($_POST['User'])) {
 
             $model->attributes = $_POST['User'];
             $valid = $model->validate();
 
-            if($valid){
+            if ($valid) {
 
                 $model->password = md5($model->new_password);
 
-                if($model->save())
-                    $this->redirect(array('changepassword','msg'=>'successfully changed password'));
+                if ($model->save())
+                    $this->redirect(array('changepassword', 'msg' => 'successfully changed password'));
                 else
-                    $this->redirect(array('changepassword','msg'=>'password not changed'));
+                    $this->redirect(array('changepassword', 'msg' => 'password not changed'));
             }
         }
 
-        $this->render('changepassword',array('model'=>$model));
+        $this->render('changepassword', array('model' => $model));
     }
 
     /**
