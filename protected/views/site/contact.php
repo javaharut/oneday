@@ -103,32 +103,35 @@ $this->pageTitle = Yii::app()->name . ' - Հետադարձ կապ';
                 'body',
                 array(
                     'wrapperHtmlOptions' => array(
-                        'class' => 'col-sm-6',
+                        'class' => 'col-sm-5',
                     ),
                     'widgetOptions' => array(
                         'htmlOptions' => array('style' => 'height: 200px;'),
                     )
                 )
             ); ?>
-            <?php
-            $this->widget(
-                'booster.widgets.TbButton',
-                array(
+            <div class="col-lg-6 pull-right">
+                <?php
+                $this->widget(
+                    'booster.widgets.TbButton',
+                    array(
 
-                    'buttonType' => 'submit',
-                    'context' => 'primary',
-                    'label' => 'Ուղարկել'
-                )
-            ); ?>
+                        'buttonType' => 'submit',
+                        'context' => 'primary',
+                        'label' => 'Ուղարկել'
+                    )
+                ); ?>
 
-            <?php $this->widget(
-                'booster.widgets.TbButton',
-                array('buttonType' => 'reset', 'label' => 'Ջնջել', 'context' => 'danger',)
-            );
-            $this->endWidget();
-            unset($form);
+                <?php $this->widget(
+                    'booster.widgets.TbButton',
+                    array('buttonType' => 'reset', 'label' => 'Ջնջել', 'context' => 'danger',)
+                );
+                $this->endWidget();
+                unset($form);
 
-            ?>
+                ?>
+
+            </div>
 
 
         </fieldset>
