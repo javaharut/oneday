@@ -34,7 +34,7 @@ class SiteController extends Controller
     {
         return array(
             array('allow',
-                'actions' => array('index', 'login', 'partners', 'about', 'contacts'),
+                'actions' => array('index', 'login', 'partners', 'about', 'contact','partner','history','room','changepassword','logout'),
                 'users' => array("*"),
             ),
             array('allow',
@@ -65,6 +65,7 @@ class SiteController extends Controller
         $this->pageTitle = 'Գլխավոր էջ';
         $this->layout = '//layouts/front';
 
+        $history = History::model()->findAll();
         $model = Main::model()->findByPk(1);
 
         /*echo "<pre>";
@@ -73,7 +74,7 @@ class SiteController extends Controller
 
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index', array('model' => $model));
+        $this->render('index', array('model' => $model,'history'=>$history ));
     }
 
     public function actionCreateuser()
@@ -149,46 +150,107 @@ class SiteController extends Controller
         $this->render('user', array('user' => $user));
     }
 
-    public function actionPartners()
-    {
+    /*echo "<pre>";
+                   print_r($model);
+                   exit;*/
+/*
+    public function actionPartners(){
 
 
-        $this->layout = '//layouts/front';
-        $model = Partner::model()->findAll();
+
+
         $cat = Category::model()->findAll();
         $dataprovider = Partner::model()->search();
-        $this->render('partners', array('model' => $model,'cat' => $cat, 'dataprovider'=>$dataprovider));
-                /*echo "<pre>";
-                print_r($model);
-                exit;*/
+        $this->render('partners', array('partner' => $partner,'cat' => $cat, 'dataprovider'=>$dataprovider));
+
+    }*/
 
 
-    }
-
-    public function actionPart()
+/*    public function actionPartner($id)
     {
+        $partner = Partner::model()->findByPk($id);
+        $this->render('_partners', array('partner'=>$partner));
+    }*/
 
 
+
+    public function actionPartners($id)
+    {
         $this->layout = '//layouts/front';
-        /*        $model = Partner::model()->findAll();*/
-        $this->render('part' /*array('model'=>$model)*/);
-        /*        echo "<pre>";
-                print_r($model);
-                exit;
-                Yii::app()->end();*/
+        $partners = Partner::model()->findByPk($id);
+        $this->render('_partners', array('partners'=>$partners));
     }
-
+    public function actionPartner(){
+        $this->layout = '//layouts/front';
+        $criteria=new CDbCriteria();
+        $count=Partner::model()->count($criteria);
+        $pages=new CPagination($count);
+        // results per page
+        $pages->pageSize=10;
+        $pages->applyLimit($criteria);
+        $partner = Partner::model()->findAll($criteria);
+        // renders the view file 'protected/views/site/index.php'
+        // using the default layouts 'protected/views/layouts/main.php'
+        $this->render('partner', array('partner'=>$partner,'pages' => $pages));
+    }
 
     public function actionHistory()
     {
 
         $this->layout = '//layouts/front';
-        $model = History::model()->findByPk(1);
-        $this->render('history', array('model' => $model));
+        $criteria=new CDbCriteria();
+        $count=History::model()->count($criteria);
+        $pages=new CPagination($count);
+        // results per page
+        $pages->pageSize=6;
+        $pages->applyLimit($criteria);
+        $model = History::model()->findAll($criteria);
+        $this->render('history', array('model' => $model, 'pages' => $pages));
+
 
         /*echo "<pre>";
         print_r($model);
         exit;*/
+    }
+
+
+    public function actionRoom()
+    {
+
+        $this->layout = '//layouts/front';
+        $room = User::model()->find(Yii::app()->user->getId());
+
+        $this->render('room', array('room' => $room));
+
+
+    }
+
+
+    public function actionChangepassword($id)
+    {
+        $model = new User();
+
+        $model = User::model()->findByAttributes(array('id'=>$id));
+        $model->setScenario('changePwd');
+
+
+        if(isset($_POST['User'])){
+
+            $model->attributes = $_POST['User'];
+            $valid = $model->validate();
+
+            if($valid){
+
+                $model->password = md5($model->new_password);
+
+                if($model->save())
+                    $this->redirect(array('changepassword','msg'=>'successfully changed password'));
+                else
+                    $this->redirect(array('changepassword','msg'=>'password not changed'));
+            }
+        }
+
+        $this->render('changepassword',array('model'=>$model));
     }
 
     /**

@@ -35,6 +35,10 @@ class User extends CActiveRecord
 
     public $newpassword;
 
+    public $old_password;
+    public $new_password;
+    public $repeat_password;
+
     /**
      * @return string the associated database table name
      */
@@ -54,21 +58,21 @@ class User extends CActiveRecord
     {
         /*  if ($this->isNewRecord)
               $this->reg_date = Yii::app()->localtime->UTCNow;*/
-        if(!$this->isNewRecord) {
-            if($this->newpassword != $this->password)
+        if (!$this->isNewRecord) {
+            if ($this->newpassword != $this->password)
                 $this->password = md5($this->newpassword);
         }
-
 
 
         return parent::beforeSave();
     }
 
 
-    public function getcrole() {
-        if($this->role == User::ADMIN)
+    public function getcrole()
+    {
+        if ($this->role == User::ADMIN)
             return "Admin";
-        else if($this->role == User::MODER)
+        else if ($this->role == User::MODER)
             return "Moderator";
         else
             return "User";
@@ -86,7 +90,7 @@ class User extends CActiveRecord
             array('moder_percent', 'numerical'),
             array('name, lname, username, password, newpassword, phone', 'length', 'max' => 255),
             array('id', 'unique'),
-            array('id', 'required'),  /*username, password*/
+            array('id', 'required'), /*username, password*/
 
             array('passport', 'length', 'max' => 20),
             array('email', 'length', 'max' => 100),
@@ -99,6 +103,14 @@ class User extends CActiveRecord
                     moder_percent',
                 'safe',
                 'on' => 'search'),
+
+            /*PASSWORD CHANGE RULE*/
+
+            array('old_password, new_password, repeat_password', 'required', 'on' => 'changePwd'),
+            array('old_password', 'findPasswords', 'on' => 'changePwd'),
+            array('repeat_password', 'compare', 'compareAttribute' => 'new_password', 'on' => 'changePwd'),
+
+
         );
     }
 
@@ -123,16 +135,16 @@ class User extends CActiveRecord
     {
         return array(
             'id' => 'ID',
-            'parent_id' => 'Parent',
-            'name' => 'Name',
-            'lname' => 'LastName',
-            'phone' => 'Phone',
-            'passport' => 'Passport',
-            'email' => 'Email',
-            'reg_date' => 'Reg Date',
-            'balance' => 'Balance',
-            'username' => 'Login',
-            'password' => 'Password',
+            'parent_id' => 'Ծնող',
+            'name' => 'Անուն',
+            'lname' => 'Ազգանուն',
+            'phone' => 'Հեռախոս',
+            'passport' => 'Անձնագիր',
+            'email' => 'Էլ.Փոստ',
+            'reg_date' => 'Գրանցման ամսաթիվ',
+            'balance' => 'Հաշվեկշիռ',
+            'username' => 'Մուտքանուն',
+            'password' => 'Գաղտնաբառ',
             'role' => 'Role',
             'pay_status' => 'Pay Status',
             'moder_percent' => 'Moder Percent',

@@ -20,13 +20,7 @@ $this->pageTitle = Yii::app()->name . ' - Հետադարձ կապ';
 
 <?php else: ?>
 
-
-
-    <div id="map1" class="map">
-
-    </div>
-
-    <div class="clearfix"></div>
+  <div class="clearfix"></div>
 
 
     <div class="contact">
@@ -138,55 +132,6 @@ $this->pageTitle = Yii::app()->name . ' - Հետադարձ կապ';
 
 
         </fieldset>
-
-
-        <script type="text/javascript">
-            jQuery(function ($) {
-
-                function init_map1() {
-                    var myLocation = new google.maps.LatLng(40.190124, 44.514582);
-
-                    var mapOptions = {
-                        center: myLocation,
-                        zoom: 15,
-                        mapTypeControlOptions: {
-                            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-                        }
-                    };
-                    var marker = new google.maps.Marker({
-                        position: myLocation,
-                        animation: google.maps.Animation.BOUNCE,
-                        title: "Property Location",
-
-                        /*icon: '<?=Yii::app()->baseUrl?>/css/images/pin.png'*/
-                    });
-                    var map = new google.maps.Map(document.getElementById("map1"),
-                        mapOptions);
-                    marker.setMap(map);
-                    // map.mapTypes.set('map_style', styledMap);
-                    // map.setMapTypeId('map_style');
-
-                }
-
-                init_map1();
-
-
-            });
-        </script>
-
-        <style>
-            .map {
-                min-width: 100px;
-                min-height: 300px;
-                width: 100%;
-                height: 100%;
-
-                border-radius: 10px;
-                border: 3px solid #67abb3;
-            }
-
-        </style>
-
 
     </div>
 
