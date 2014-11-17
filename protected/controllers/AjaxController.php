@@ -44,6 +44,14 @@ class AjaxController extends Controller
         if(Yii::app()->request->isAjaxRequest) {
 
             $user = User::model()->findByPk($_POST['id']);
+
+            $transactions = $user->transactions;
+
+            foreach ($transactions as $transaction) {
+                $transaction->delete();
+            }
+
+
             if($user->delete())
                 echo "1";
             else

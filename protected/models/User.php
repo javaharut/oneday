@@ -107,7 +107,7 @@ class User extends CActiveRecord
             /*PASSWORD CHANGE RULE*/
 
             array('old_password, new_password, repeat_password', 'required', 'on' => 'changePwd'),
-            array('old_password', 'findPasswords', 'on' => 'changePwd'),
+           // array('old_password', 'findPasswords', 'on' => 'changePwd'),
             array('repeat_password', 'compare', 'compareAttribute' => 'new_password', 'on' => 'changePwd'),
 
 

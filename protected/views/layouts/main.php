@@ -32,6 +32,9 @@
                         array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1')),
                         ),
 
+                        array('label'=>'My Page', 'url'=>CHtml::normalizeUrl(array('user/mypage')),
+                        ),
+
                         array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN )),
 
