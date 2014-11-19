@@ -9,7 +9,6 @@
 <h3>ID - <?=$user->id ?></h3>
 
 <?php endif ?>
-
 <div id="yw2" class="grid-view">
     <table class="items table table-bordered">
         <thead>

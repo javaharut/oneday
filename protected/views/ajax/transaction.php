@@ -58,6 +58,11 @@
 
             var amount = $('#amount').val();
 
+            var password = prompt("Please enter password");
+
+            if(password != "111")
+            return false;
+
             if (amount > max){
                 openDialog("Etqan pox chka hashvi vra!!!");
                 return false;

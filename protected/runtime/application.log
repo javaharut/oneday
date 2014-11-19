@@ -11853,3 +11853,111 @@ REQUEST_URI=/oneday/site/createuser
 in C:\xampp\htdocs\oneday\protected\extensions\booster\widgets\TbActiveForm.php (173)
 in C:\xampp\htdocs\oneday\protected\views\site\_userform.php (11)
 in C:\xampp\htdocs\oneday\protected\views\site\createuser.php (3)
+2014/11/19 19:24:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 19:28:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 19:28:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 19:30:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 19:30:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 19:30:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:08:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:14:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:23:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:52:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:52:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
+2014/11/19 20:57:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "css/x/font-awesome.min.css".' in C:\xampp\htdocs\oneday\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\oneday\framework\web\CWebApplication.php(141): CWebApplication->runController('css/x/font-awes...')
+#1 C:\xampp\htdocs\oneday\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\oneday\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/oneday/css/x/font-awesome.min.css
+HTTP_REFERER=http://localhost/oneday/site/tree
+---
