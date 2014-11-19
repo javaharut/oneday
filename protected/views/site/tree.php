@@ -123,6 +123,12 @@ function drawTree($users) {
         });
 
         $(document).on('click', '.remove', function(){
+
+            var r = confirm("Do you want to delete ?")
+
+            if(r == false)
+                return false;
+
             $.ajax({
                 type:'POST',
                 data:{id:$(this).attr('data-value')},

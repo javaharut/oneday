@@ -217,9 +217,11 @@ class AjaxController extends Controller
             $criteria->params = array(':id'=>$_POST['id']);
             $criteria->order = "date DESC";
 
+            $user = User::model()->findByPk($_POST['id']);
+
             $transactions = Transaction::model()->findAll($criteria);
 
-            $this->renderPartial('history', array('transactions'=>$transactions));
+            $this->renderPartial('history', array('transactions'=>$transactions, 'user'=>$user));
 
             Yii::app()->end();
         }
