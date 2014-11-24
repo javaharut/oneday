@@ -3,7 +3,7 @@
 
 $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
 ?>
-<span class="title">Մեր գործընկերները</span>
+<span class="title">ՄԵՐ ԳՈՐԾԸՆԿԵՐՆԵՐԸ</span>
 <legend></legend>
 
 

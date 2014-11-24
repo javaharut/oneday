@@ -41,7 +41,7 @@
                     'items' => array(
                         array('label' => 'ԳԼԽԱՎՈՐ ԷՋ', 'url' => Yii::app()->request->baseUrl,),
                         array('label' => 'ԳՈՐԾԸՆԿԵՐՆԵՐ', 'url' => CHtml::normalizeUrl(array('site/partner'))),
-                        array('label' => 'ՊԱՏՄՈՒԹՅՈՒՆ', 'url' => CHtml::normalizeUrl(array('site/history'))),
+                        array('label' => 'ԾԱՆՈՒՑՈՒՄՆԵՐ', 'url' => CHtml::normalizeUrl(array('site/history'))),
                         array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'url' => CHtml::normalizeUrl(array('site/contact'))),
                         array('label' => 'ՄՈՒՏՔ', 'url' => CHtml::normalizeUrl(array('site/login')), 'visible' => Yii::app()->user->isGuest),
                         array('label' => ' ԿԱԲԻՆԵՏ', 'url' => CHtml::normalizeUrl(array('site/room')), 'visible' => !Yii::app()->user->isGuest),

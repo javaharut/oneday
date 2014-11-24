@@ -11,6 +11,7 @@ $this->pageTitle = Yii::app()->name . ' - Հետադարձ կապ';
 
 ?>
     <span class="title"> ՀԵՏԱԴԱՐՁ ԿԱՊ </span>
+<legend></legend>
 
 <?php if (Yii::app()->user->hasFlash('contact')): ?>
 

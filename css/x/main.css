@@ -242,3 +242,13 @@ h2{color:#34ca78;}
     margin-top: 20px;
     border: 1px solid #808080;
 }
+
+
+.history-index {
+    width: auto;
+    height: 450px;
+    overflow-x: auto;
+    overflow-y: auto;
+    background: rgba(240, 240, 240, 0.76);
+    padding: 10px;
+}

@@ -7,7 +7,7 @@ $this->pageTitle = Yii::app()->name . ' - Մուտք';
 ?>
 
 <div class="">
-    <span class="title"> Մուտք գործել կայք </span>
+    <span class="title"> ՄՈՒՏՔ ԳՈՐԾԵԼ ԿԱՅՔ </span>
 
     <legend></legend>
 

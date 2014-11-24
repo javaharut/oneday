@@ -6,15 +6,13 @@ $this->pageTitle = Yii::app()->name . ' - Մեր Պատմությունը';
 ?>
 
 
-
+<span class="title">ԾԱՆՈՒՑՈՒՄՆԵՐ</span>
+<legend></legend>
 
     <?php foreach ($model as $models): ?>
 <div class="col-md-6 blogShort ">
         <div class="article-content">
         <span class="title"><?= $models->title ?></span>
-        <img src="http://www.kaczmarek-photo.com/wp-content/uploads/2012/06/guinnes-150x150.jpg" alt="post img"
-             class="pull-left img-responsive thumb margin10 img-thumbnail">
-
         <p><?= $models->text ?></p>
         <p class="pull-right history-date marginBottom10">   <?= $models->date ?></p>
         <div class="clearfix"></div>
