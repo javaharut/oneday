@@ -5,8 +5,8 @@
 
 <?php if(isset($user)):?>
 
-<h4>Transaction History for <?=$user->name . ' ' . $user->lname ?></h4>
-<h3>ID - <?=$user->id ?></h3>
+<h4> <?=$user->name . ' ' . $user->lname ?> Օգտատիրոջ գործողությունների պատմությունը</h4>
+<h3>Օգտատիրոջ ID-ն - <?=$user->id ?></h3>
 
 <?php endif ?>
 <div id="yw2" class="grid-view">

@@ -7,12 +7,12 @@ $this->pageTitle = Yii::app()->name . ' - Կաբինետ';
 <legend></legend>
 <div class="row">
     <div class="col-lg-12">
-        <div class="alert alert-success text-room-balance">Ձեր հաշվեկշիռը կազմում է ՝ <?= $room->balance ?> դրամ</div>
+        <div class="alert alert-success text-room-balance">Ձեր հաշվեկշիռը կազմում է ՝ դրամ</div>
     </div>
 </div>
 <div class="col-lg-5 room-info">
     <?php $this->widget('booster.widgets.TbDetailView', array(
-        'data' => $room,
+        'data' => $model,
         'attributes' => array(
             'id',
             'parent_id',
@@ -29,5 +29,7 @@ $this->pageTitle = Yii::app()->name . ' - Կաբինետ';
         ),
     )); ?>
 </div>
+
+<?php $this->renderPartial('../ajax/history', array('user'=>$model, 'transactions'=>$model->transactions));?>
 
 <div class="clearfix"></div>

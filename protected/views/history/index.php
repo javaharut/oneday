@@ -1,20 +1,31 @@
 <?php
-/* @var $this HistoryController */
-/* @var $dataProvider CActiveDataProvider */
-
 $this->breadcrumbs=array(
 	'Histories',
 );
 
-$this->menu=array(
-	array('label'=>'Create History', 'url'=>array('create')),
-	array('label'=>'Manage History', 'url'=>array('admin')),
-);
+
 ?>
 
-<h1>Histories</h1>
+<h1>ՊՍՏՄՈՒԹՅՈՒՆ</h1>
+<hr>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<a href="<?=Yii::app()->request->baseUrl?>/history/create" class="btn btn-success">Ավելացնել պատմություն</a>
+
+<hr>
+
+
+<?php $this->widget('booster.widgets.TbGridView',array(
+    'id'=>'history-grid',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'columns'=>array(
+        'id',
+        'title',
+        'text',
+        'date',
+        'url',
+        array(
+            'class'=>'booster.widgets.TbButtonColumn',
+        ),
+    ),
 )); ?>

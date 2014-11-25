@@ -1,23 +1,17 @@
 <?php
+/* @var $this SiteController */
 
-/* @var $model User */
-
-
-$this->breadcrumbs=array(
-    'Users'=>array('index'),
-    $model->name,
-);
-
-/*$this->menu=array(
-    array('label'=>'List User','url'=>array('index')),
-    array('label'=>'Create User','url'=>array('create')),
-    array('label'=>'Update User','url'=>array('update','id'=>$model->id)),
-    array('label'=>'Delete User','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-    array('label'=>'Manage User','url'=>array('admin')),
-);*/
+$this->pageTitle = Yii::app()->name . ' - Կաբինետ';
 ?>
+<span class="title">ԿԱԲԻՆԵՏ</span>
+<legend></legend>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-success text-room-balance">Ձեր հաշվեկշիռը կազմում է՝  &nbsp;&nbsp;<?=$model->balance?>&nbsp;&nbsp; դրամ</div>
+    </div>
+</div>
 
-<h1>Your id number is <?php echo $model->id; ?></h1>
+<h1>ՁԵՐ ID կոդն է՝ <?php echo $model->id; ?></h1>
 <div class="row">
     <div class="col-md-12">
         <?php $this->widget('booster.widgets.TbDetailView',array(
@@ -33,8 +27,8 @@ $this->breadcrumbs=array(
                 'reg_date',
                 'balance',
                 'username',
-                'password',
-                'crole',
+                //'password',
+                //'crole',
             ),
         )); ?>
     </div>
@@ -42,13 +36,13 @@ $this->breadcrumbs=array(
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Your Transactions vor Mher@ piti hayeren sarqi </h3>
+        <h3> Ձեր կատարած գործողությունները </h3>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12 user">
-        <?php $this->renderPartial('../ajax/history', array('transactions'=>$model->transactions));?>
+        <?php $this->renderPartial('../ajax/history', array('user'=>$model, 'transactions'=>$model->transactions));?>
     </div>
 </div>
 

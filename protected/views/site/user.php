@@ -1,19 +1,24 @@
 <?php
 
-/* @var $user User */
-
-/*$this->widget(
-    'booster.widgets.TbDetailView',
-    array(
-        'data' => $user
-    )
-);*/
 
 $this->widget('booster.widgets.TbGridView', array(
     'type' => 'striped bordered condensed',
     'dataProvider' => $user->search(),
-    'template' => "{items}",
+  //  'template' => "{items}",
     'filter' => $user,
+    'columns'=>array(
+        'id',
+        'parent_id',
+        'name',
+        'lname',
+        'phone',
+        'passport',
+		'email',
+		'reg_date',
+		'balance',
+		'username',
+    ),
+
     //'columns' => $gridColumns,
 ));
 

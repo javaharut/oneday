@@ -43,8 +43,7 @@ return false;
 'dataProvider'=>$model->search(),
 'filter'=>$model,
 'columns'=>array(
-		'id',
-		'keyword',
+
 		'title',
 		'desc',
 array(

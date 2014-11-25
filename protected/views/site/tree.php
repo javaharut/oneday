@@ -44,16 +44,18 @@ function drawTree($users) {
                     <i class="glyphicon glyphicon-pencil"></i>
                 </button>
             </a>
+
+            <a href="<?=Yii::app()->baseUrl?>/site/createuser/<?=$user->id?>">
+                <button  type='button' class='btn btn-warning'>
+                    <i class="glyphicon glyphicon-user"></i>
+                </button>
+            </a>
+
             <?php if(empty($user->users)):?>
                 <button type="button" class="btn btn-danger remove" data-value="<?=$user->id?>">
                     <i class="glyphicon glyphicon-remove"></i>
                 </button>
             <?php endif ?>
-
-       <!-- <?php /*if(Yii::app()->user->role == User::ADMIN):*/?>
-            <button type='button' class='btn btn-info edit'><i class='icon-edit'></i></button>
-        --><?php /*endif */?>
-
 
        <?php if(!empty($user->users))
             drawTree($user);
@@ -62,6 +64,8 @@ function drawTree($users) {
     <?php endforeach ?>
     </ul>
 <?php } ?>
+
+<div class="clearfix"></div>
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
@@ -74,9 +78,38 @@ function drawTree($users) {
             </div>
             <div id="collapseDVR3" class="panel-collapse collapse in">
                 <div class="tree">
+                    <li><span><i class='glyphicon-minus'></i></span>
+                        <button type='button' class='btn btn-info btn-sm more'>
+                            <input type ='hidden' value='<?=$users->id?>' />
+                            <?=$users->id?>
+                        </button>
+                        <button  type='button' class='btn btn-success transaction' data-value="<?=$users->id?>">
+                            <i class="glyphicon glyphicon-usd"></i>
+                        </button>
+                        <button  type='button' class='btn btn-default history' data-value="<?=$users->id?>">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </button>
+                        <a href="<?=Yii::app()->baseUrl?>/site/edituser/<?=$users->id?>">
+                            <button  type='button' class='btn btn-primary'>
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button>
+                        </a>
 
+                        <a href="<?=Yii::app()->baseUrl?>/site/createuser/<?=$users->id?>">
+                            <button  type='button' class='btn btn-warning'>
+                                <i class="glyphicon glyphicon-user"></i>
+                            </button>
+                        </a>
+
+
+                        <?php if(empty($users->users)):?>
+                            <button type="button" class="btn btn-danger remove" data-value="<?=$users->id?>">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+                            </li>
+                        <?php endif ?>
                    <?php drawTree($users); ?>
-
+                        </ul>
                 </div>
             </div>
         </div>
@@ -124,10 +157,13 @@ function drawTree($users) {
 
         $(document).on('click', '.remove', function(){
 
-            var r = confirm("Do you want to delete ?")
 
-            if(r == false)
-                return false;
+            var password = prompt("Մուտքագրել գաղտնաբառը");
+
+            if(password != "odclub159")
+            return false;
+
+
 
             $.ajax({
                 type:'POST',

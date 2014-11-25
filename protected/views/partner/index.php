@@ -3,15 +3,22 @@ $this->breadcrumbs=array(
 	'Partners',
 );
 
-$this->menu=array(
-array('label'=>'Create Partner','url'=>array('create')),
-array('label'=>'Manage Partner','url'=>array('admin')),
-);
 ?>
 
 <h1>Partners</h1>
 
-<?php $this->widget('booster.widgets.TbListView',array(
-'dataProvider'=>$dataProvider,
-'itemView'=>'_view',
+<a href="<?=Yii::app()->request->baseUrl?>/partner/create" class="btn btn-success">Ավելացնել գործընկեր</a>
+<hr>
+
+<?php $this->widget('booster.widgets.TbGridView',array(
+    'id'=>'main-grid',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'columns'=>array(
+        'title',
+        'desc',
+        array(
+            'class'=>'booster.widgets.TbButtonColumn',
+        ),
+    ),
 )); ?>

@@ -20,29 +20,34 @@
                     'class' => 'booster.widgets.TbMenu',
                     'type' => 'navbar',
                     'items' => array(
+
+                        array('label'=>'Օգտատերեր', 'url'=>CHtml::normalizeUrl(array('site/user')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
+
                         array('label'=>'Օգտատերերի Ծառը', 'url'=>CHtml::normalizeUrl(array('site/tree')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
 
-                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/index')),
-                        'visible'=>(Yii::app()->user->role == User::ADMIN )),
 
                         array('label'=>'Նոր Օգտատեր', 'url'=>CHtml::normalizeUrl(array('site/createuser')),
+                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
+
+
+
+                 /*       array('label'=>'My Page', 'url'=>CHtml::normalizeUrl(array('user/mypage')),
+                        ),*/
+
+                        array('label'=>'Ընդհանուր գումարային շարժ', 'url'=>CHtml::normalizeUrl(array('transaction/admin')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
 
                         array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1')),
                         ),
 
-                        array('label'=>'My Page', 'url'=>CHtml::normalizeUrl(array('user/mypage')),
-                        ),
-
-                        array('label'=>'Պատմություն', 'url'=>CHtml::normalizeUrl(array('history/update/1')),
+                        array('label'=>'Ծանուցումներ', 'url'=>CHtml::normalizeUrl(array('history/index')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN )),
 
-                        array('label'=>'Transactions', 'url'=>CHtml::normalizeUrl(array('transaction/admin')),
-                            'visible'=>(Yii::app()->user->role == User::ADMIN ||Yii::app()->user->role == User::ADMIN )),
-
-                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/update/1')),
+                        array('label'=>'Գործնկերներ', 'url'=>CHtml::normalizeUrl(array('partner/index')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN )),
+
 
                         array('label'=>'Մուտք', 'url'=>CHtml::normalizeUrl(array('/site/login')),
                             'visible'=>Yii::app()->user->isGuest),

@@ -3,19 +3,18 @@
     'enableAjaxValidation' => false,
 )); ?>
 
-<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 <?php echo $form->errorSummary($model); ?>
-<?php $list = CHtml::listData(category::model()->findAll(),'id','title');?>
+<?php /*$list = CHtml::listData(category::model()->findAll(),'id','title');*/?>
 
-<?php echo $form->select2Group($model, 'category_id', array(
+<?php /*echo $form->select2Group($model, 'category_id', array(
     'widgetOptions' => array(
         'data' => $list,
-        'htmlOptions' => array('style' => 'width:100%', 'class' => 'span5')))); ?>
+        'htmlOptions' => array('style' => 'width:100%', 'class' => 'span5')))); */?>
 
 <!--	--><?php /*echo $form->textFieldGroup($model,'category_id',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); */ ?>
 
-<?php echo $form->textFieldGroup($model, 'keyword', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 255)))); ?>
+<?php /*echo $form->textFieldGroup($model, 'keyword', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 255)))); */?>
 
 <?php echo $form->textFieldGroup($model, 'title', array('widgetOptions' => array('htmlOptions' => array('class' => 'span5', 'maxlength' => 255)))); ?>
 

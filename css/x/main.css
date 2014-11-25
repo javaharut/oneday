@@ -1,18 +1,20 @@
-@font-face {
+/*@font-face {
     font-family: 'AUM';
     src: url('../fonts/AUM.ttf');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 body {
 
+/*
     background-image: url("../images/town.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+*/
+/*    background-repeat: no-repeat;
+    background-size: cover;*/
     position: relative;
-
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif!important;
+    background-color: rgba(68, 68, 68, 0.45) !IMPORTANT;
+    font-family: Verdana;
 
 
 }
@@ -35,7 +37,7 @@ body {
 .title {
     color: #283545;
     font-weight: bold;
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
     text-align: center;
     font-size: 33px;
 
@@ -68,7 +70,7 @@ body {
     background-image: none;
     color: #fff;
     box-shadow: none;
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
     padding: 0;
     margin-bottom: 10px !important;
     margin-top: 0px !important;
@@ -103,7 +105,7 @@ body {
 .navbar-default .navbar-nav > li > a {
     font-size: 18px;
     color: #ffffff !important;
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
 }
 
 .footer {
@@ -112,7 +114,7 @@ body {
     background-color: rgba(68, 68, 68, 0.90);
     border-color: #444;
     color: #ffffff;
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
     font-weight: bold;
     font-size: 15px;
     text-align: center;
@@ -134,12 +136,12 @@ body {
 }
 
 .footer_title {
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
 }
 
 .part_desc {
 
-    font-family: 'AUM', Arial, Helvetica, Sans-Serif;
+    font-family: Verdana;
     text-align: left;
 }
 
@@ -251,4 +253,16 @@ h2{color:#34ca78;}
     overflow-y: auto;
     background: rgba(240, 240, 240, 0.76);
     padding: 10px;
+}
+
+.od {
+    color: #fff;
+    font-family: verdana;
+    margin-top: -25px;
+    font-size: 50px;
+
+}
+
+.logo {
+    margin-top: -16px;
 }

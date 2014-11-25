@@ -6,15 +6,8 @@
 $this->pageTitle = Yii::app()->name . ' - Մուտք';
 ?>
 
-<div class="">
     <span class="title"> ՄՈՒՏՔ ԳՈՐԾԵԼ ԿԱՅՔ </span>
-
     <legend></legend>
-
-</div>
-
-<div class="clearfix"></div>
-
 <div>
     <div class="col-lg-5 pull-left" style="text-align: left">
         <?php

@@ -58,13 +58,13 @@
 
             var amount = $('#amount').val();
 
-            var password = prompt("Please enter password");
+            var password = prompt("Մուտքագրել գաղտնաբառը");
 
-            if(password != "111")
+            if(password != "odclub159")
             return false;
 
             if (amount > max){
-                openDialog("Etqan pox chka hashvi vra!!!");
+                openDialog("Բավական գումար չկա հաշվին!!!");
                 return false;
             }
             max -= amount;

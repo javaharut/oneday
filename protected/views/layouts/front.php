@@ -18,7 +18,8 @@
 
 <div class="container">
     <div class="header">
-        <div class="pull-left"><img src="<?= Yii::app()->request->baseUrl ?>/css/images/oneday.png"></div>
+        <div><img class="logo" src="<?= Yii::app()->request->baseUrl ?>/css/images/oneday.png"></div>
+        <p class="od">ONE DAY CLUB</p>
     </div>
 </div>
 <div class="clearfix"></div>
@@ -26,7 +27,6 @@
 <!-----Navigation------>
 <div class="container">
     <?php
-
     $this->widget(
         'booster.widgets.TbNavbar',
         array(
@@ -44,8 +44,8 @@
                         array('label' => 'ԾԱՆՈՒՑՈՒՄՆԵՐ', 'url' => CHtml::normalizeUrl(array('site/history'))),
                         array('label' => 'ՀԵՏԱԴԱՐՁ ԿԱՊ', 'url' => CHtml::normalizeUrl(array('site/contact'))),
                         array('label' => 'ՄՈՒՏՔ', 'url' => CHtml::normalizeUrl(array('site/login')), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => ' ԿԱԲԻՆԵՏ', 'url' => CHtml::normalizeUrl(array('site/room')), 'visible' => !Yii::app()->user->isGuest),
-                        array('label' => 'ԵԼՔ ( '.Yii::app()->user->name.' ) ', 'url' => CHtml::normalizeUrl(array('site/logout')), 'visible' => !Yii::app()->user->isGuest),
+                        array('label' => ' ԿԱԲԻՆԵՏ', 'url' => CHtml::normalizeUrl(array('user/mypage')), 'visible' => !Yii::app()->user->isGuest),
+                        array('label' => 'ԵԼՔ ( ' . Yii::app()->user->name . ' ) ', 'url' => CHtml::normalizeUrl(array('site/logout')), 'visible' => !Yii::app()->user->isGuest),
 
 
                     ),

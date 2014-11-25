@@ -127,9 +127,15 @@ class PartnerController extends Controller
      */
     public function actionIndex()
     {
+        $model = new Partner('search');
+        $model->unsetAttributes(); // clear any default values
+        if (isset($_GET['Partner']))
+            $model->attributes = $_GET['Partner'];
+
         $dataProvider = new CActiveDataProvider('Partner');
         $this->render('index', array(
             'dataProvider' => $dataProvider,
+            'model' => $model,
         ));
     }
 

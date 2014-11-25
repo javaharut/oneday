@@ -57,6 +57,7 @@ class UserController extends Controller
 
     public function actionMypage() {
 
+        $this->layout = '//layouts/front';
         $this->render('mypage', array(
             'model' => $this->loadModel(Yii::app()->user->id),
         ));

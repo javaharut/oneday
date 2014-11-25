@@ -77,9 +77,11 @@ class SiteController extends Controller
         $this->render('index', array('model' => $model,'history'=>$history ));
     }
 
-    public function actionCreateuser()
+    public function actionCreateuser($id = 0)
     {
         $model = new User;
+
+        $model->parent_id = $id;
 
         $model->password = '';
         // Performing ajax validation
@@ -89,10 +91,6 @@ class SiteController extends Controller
             $model->attributes = $_POST['User'];
 
             var_dump( $model->password);
-            exit;
-
-
-
             $model->reg_date = new CDbExpression('NOW()');
             if ($model->save())
                 $this->redirect('tree');
@@ -141,7 +139,7 @@ class SiteController extends Controller
 
     public function actionUser()
     {
-        $this->layout = '//layouts/front';
+        $this->layout = '//layouts/main';
         $user = new User('search');
         $user->unsetAttributes(); // clear any default values
         if (isset($_GET['User']))
@@ -214,7 +212,7 @@ class SiteController extends Controller
     }
 
 
-    public function actionRoom()
+    /*public function actionRoom()
     {
 
         $this->layout = '//layouts/front';
@@ -223,7 +221,7 @@ class SiteController extends Controller
         $this->render('room', array('room' => $room));
 
 
-    }
+    }*/
 
 
     public function actionChangepassword($id)
@@ -320,6 +318,20 @@ class SiteController extends Controller
         $this->render('login', array('model' => $model));
     }
 
+    public function actionRoom() {
+
+        $this->render('room', array(
+            'model' => $this->loadModel(Yii::app()->user->id),
+        ));
+    }
+
+    public function loadModel($id)
+    {
+        $model = User::model()->findByPk($id)->with('transactions');
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
+        return $model;
+    }
     /**
      * Logs out the current user and redirect to homepage.
      */

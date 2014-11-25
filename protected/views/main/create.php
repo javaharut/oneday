@@ -4,10 +4,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-array('label'=>'List Main','url'=>array('index')),
-array('label'=>'Manage Main','url'=>array('admin')),
-);
 ?>
 
 <h1>Create Main</h1>

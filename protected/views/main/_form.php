@@ -3,13 +3,9 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php /*echo $form->textFieldGroup($model,'id',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5')))); */?>
-
-	<?php echo $form->textFieldGroup($model,'keyword',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
 	<?php echo $form->textFieldGroup($model,'title',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
@@ -23,6 +19,7 @@
         'widgetOptions' => array(
             'editorOptions' => array(
                 'fullpage' => 'js:true',
+                'height'=>'600px',
                 /* 'width' => '640', */
                 /* 'resize_maxWidth' => '640', */
                 /* 'resize_minWidth' => '320'*/
