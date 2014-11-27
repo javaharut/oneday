@@ -11,7 +11,7 @@ $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
     <?php foreach($partner as $partners):?>
 
 
-        <div class="col-sm-3 col-md-3">
+        <div class="col-sm-3 col-xs-12 col-md-3">
             <div class="thumbnail">
                 <img data-src="holder.js/300x300" alt="...">
                 <div class="caption">
@@ -30,17 +30,19 @@ $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
 <br>
 <br>
 <div class="row">
-    <?php    $this->widget('CLinkPager', array(
-        'pages' => $pages,
-        'header'=>'',
+    <div class="col-md-3 col-md-offset-4 col-xs-12 col-xs-offset-1 col-lg-3 col-lg-offset-4">
+        <?php    $this->widget('CLinkPager', array(
+            'pages' => $pages,
+            'header'=>'',
 
-        'selectedPageCssClass'=>'active',
-        'firstPageCssClass'=>'previous',
-        'lastPageCssClass'=>'next',
-        'firstPageLabel'=>'Առաջին էջ',
-        'lastPageLabel'=>'Վերջին էջ',
-        'prevPageLabel'=>'Հաջորդ',
-        'nextPageLabel'=>'Նախորդ',
-    ))?>
-
+            'selectedPageCssClass'=>'active',
+            'firstPageCssClass'=>'previous',
+            'lastPageCssClass'=>'next',
+            'firstPageLabel'=>'Առաջին էջ',
+            'lastPageLabel'=>'Վերջին էջ',
+            'prevPageLabel'=>'Հաջորդ',
+            'nextPageLabel'=>'Նախորդ',
+        ))?>
+    </div>
 </div>
+

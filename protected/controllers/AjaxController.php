@@ -103,15 +103,30 @@ class AjaxController extends Controller
 
                 if($transaction->save()) {
                     $user = User::model()->findByPk($id);
-                    $user->balance += intval($amount);
+                   // $user->balance += intval($amount);
                     if($user->save())
-                        $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-{$amount}</div></div>";
+                        $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-0</div></div>";
                     if(!empty($user->parent)) {
                         if(empty($user->parent->parent)) {
-                            $money =  intval($amount * $percent / 100);
-                            $user->parent->balance += $money;
-                            if($user->parent->save())
-                                $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
+                            if($user->pay_status == 0){
+                                $money =  intval($amount * $percent / 100);
+                                $user->parent->balance += $money;
+                                if($user->parent->save())
+                                    $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
+
+                                $user->pay_status = 1;
+                                $user->save(false);
+                            }
+                            else {
+                                $money =  intval($amount * $percent / 100);
+                                $user->parent->balance += intval($money/2);
+                                if($user->parent->save())
+                                    $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
+
+                                $user->balance = intval($money/2);
+                                $user->save(false);
+                            }
+
                         }
                         else {
                             $half = $percent/2;
@@ -122,7 +137,7 @@ class AjaxController extends Controller
                                 if($user->save())
                                     $result .= "<div class='row'><div class='col-md-8'>id-{$user->id} amount-{$money}</div></div>";
 
-                                $counter = $this->calculateCount($user, 0) - 1;
+                                $counter = $this->calculateCount($user, 0);
 
                                 //echo $counter;
 
@@ -136,12 +151,15 @@ class AjaxController extends Controller
                                 if($user->parent->save() && $user->save())
                                     $result .= "<div class='row'><div class='col-md-8'>id-{$user->parent->id} amount-{$money}</div></div>";
 
-                                $counter = $this->calculateCount($user->parent, 0) - 1;
+                                $counter = $this->calculateCount($user->parent, 0);
 
                                 //echo $counter;
 
                                 $tempuser = $user->parent;
-                                $sharedMoney =  intval(($amount * $half / 100 )/ $counter) ;
+                                if($counter != 0)
+                                    $sharedMoney =  intval(($amount * $half / 100 )/ $counter) ;
+                                else
+                                    $sharedMoney =  intval(($amount * $half / 100 )) ;
                             }
 
                             do {
@@ -199,7 +217,7 @@ class AjaxController extends Controller
             $transaction->date = new CDbExpression('NOW()');
 
             $transaction->amount = intval($amount);
-            $transaction->user_id = $id;
+            $transaction->user_id = $user->id;
             $transaction->type = Transaction::ADD_MONEY;
 
             if($user->save());

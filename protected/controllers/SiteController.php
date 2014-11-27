@@ -90,11 +90,10 @@ class SiteController extends Controller
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
 
-            var_dump( $model->password);
+
             $model->reg_date = new CDbExpression('NOW()');
             if ($model->save())
-                $this->redirect('tree');
-            Yii::app()->user->setFlash('user_added', 'User has been created successfully!');
+                $this->redirect(array('site/tree'));
         }
 
         $this->render('createuser', array(
@@ -311,8 +310,12 @@ class SiteController extends Controller
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
-                $this->redirect(array('main/update/1'));
+            if ($model->validate() && $model->login() && Yii::app()->user->role == 3)
+                $this->redirect(array('main/index/1') );
+            elseif(Yii::app()->user->role == 1) {
+                $this->redirect(array('user/mypage') );
+
+            }
         }
         // display the login form
         $this->render('login', array('model' => $model));

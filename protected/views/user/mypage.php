@@ -11,6 +11,18 @@ $this->pageTitle = Yii::app()->name . ' - Կաբինետ';
     </div>
 </div>
 
+<?php
+if(Yii::app()->user->role == 3) {
+    echo('<a href="'.Yii::app()->request->baseUrl.'/main/update/1" target="_blank" class="btn btn-warning">Admin</a>');
+}
+
+else {
+    echo('');
+}
+
+
+
+?>
 <h1>ՁԵՐ ID կոդն է՝ <?php echo $model->id; ?></h1>
 <div class="row">
     <div class="col-md-12">

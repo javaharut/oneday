@@ -9,7 +9,7 @@ $this->pageTitle = Yii::app()->name . ' - Մուտք';
     <span class="title"> ՄՈՒՏՔ ԳՈՐԾԵԼ ԿԱՅՔ </span>
     <legend></legend>
 <div>
-    <div class="col-lg-5 pull-left" style="text-align: left">
+    <div class="col-lg-5 col-xs-12 pull-left" style="text-align: left">
         <?php
         /** @var TbActiveForm $form */
         $form = $this->beginWidget(

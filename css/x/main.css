@@ -19,6 +19,21 @@ body {
 
 }
 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
 .header {
 
     background-color: rgba(68, 68, 68, 0.90);
@@ -247,7 +262,6 @@ h2{color:#34ca78;}
 
 
 .history-index {
-    width: auto;
     height: 450px;
     overflow-x: auto;
     overflow-y: auto;
@@ -260,6 +274,35 @@ h2{color:#34ca78;}
     font-family: verdana;
     margin-top: -25px;
     font-size: 50px;
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .od {
+        color: #fff;
+        font-family: verdana;
+        margin-top: 0px;
+        font-size: 25px;
+    }
+
+    .content {
+        background: url("../images/bg.jpg");
+        padding: 5px;
+    }
+
+    .title {
+
+        font-size: 18px;
+
+    }
+
+    .footer {
+
+        font-size: 10px;
+
+
+    }
 
 }
 

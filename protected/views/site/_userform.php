@@ -5,7 +5,6 @@
 
     ),
 )); ?>
-
 <p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
 <?php echo $form->errorSummary($model); ?>
@@ -35,7 +34,7 @@
 
 	<?php echo $form->textFieldGroup($model,'username',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off')))); ?>
 
-	<?php echo $form->passwordFieldGroup($model,'newpassword',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off',)))); ?>
+	<?php echo $form->passwordFieldGroup($model,'password',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255, 'autocomplete'=>'off',)))); ?>
 
     <?php echo $form->select2Group($model,'role',array('widgetOptions'=>array('data' => array(User::USER=>"User", User::MODER=>"Manager", User::ADMIN=>"Admin"),'htmlOptions'=>array('style'=>'width:100%','class'=>'span5')))); ?>
 

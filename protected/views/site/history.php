@@ -22,10 +22,11 @@ $this->pageTitle = Yii::app()->name . ' - Մեր Պատմությունը';
 
     <?php endforeach; ?>
 <div class="clearfix"></div>
-<div class="container">
+
     <br>
     <br>
     <div class="row">
+        <div class="col-md-3 col-md-offset-4 col-xs-12 col-xs-offset-1 col-lg-3 col-lg-offset-4">
         <?php    $this->widget('CLinkPager', array(
             'pages' => $pages,
             'header'=>'',
@@ -38,10 +39,9 @@ $this->pageTitle = Yii::app()->name . ' - Մեր Պատմությունը';
             'prevPageLabel'=>'Հաջորդ',
             'nextPageLabel'=>'Նախորդ',
         ))?>
-
+    </div>
     </div>
 
-</div>
 
 
 

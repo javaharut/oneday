@@ -15,7 +15,6 @@
  * @property integer $balance
  * @property string $username
  * @property string $password
- * @property string $newpassword
  * @property integer $role
  * @property integer $pay_status
  * @property double $moder_percent
@@ -32,12 +31,11 @@ class User extends CActiveRecord
     const USER = 1;
     const MODER = 2;
     const ADMIN = 3;
-
-    public $newpassword;
+/*
 
     public $old_password;
     public $new_password;
-    public $repeat_password;
+    public $repeat_password;*/
 
     /**
      * @return string the associated database table name
@@ -46,27 +44,6 @@ class User extends CActiveRecord
     {
         return 'user';
     }
-
-    protected function afterFind()
-    {
-        $this->newpassword = $this->password;
-        parent::afterFind();
-    }
-
-
-    public function beforeSave()
-    {
-        /*  if ($this->isNewRecord)
-              $this->reg_date = Yii::app()->localtime->UTCNow;*/
-        if (!$this->isNewRecord) {
-            if ($this->newpassword != $this->password)
-                $this->password = md5($this->newpassword);
-        }
-
-
-        return parent::beforeSave();
-    }
-
 
     public function getcrole()
     {
@@ -88,7 +65,7 @@ class User extends CActiveRecord
         return array(
             array('id, parent_id, balance, role, pay_status', 'numerical', 'integerOnly' => true, 'min' => 0),
             array('moder_percent', 'numerical'),
-            array('name, lname, username, password, newpassword, phone', 'length', 'max' => 255),
+            array('name, lname, username, password, phone', 'length', 'max' => 255),
             array('id', 'unique'),
             array('id', 'required'), /*username, password*/
 
@@ -103,13 +80,6 @@ class User extends CActiveRecord
                     moder_percent',
                 'safe',
                 'on' => 'search'),
-
-            /*PASSWORD CHANGE RULE*/
-
-            array('old_password, new_password, repeat_password', 'required', 'on' => 'changePwd'),
-           // array('old_password', 'findPasswords', 'on' => 'changePwd'),
-            array('repeat_password', 'compare', 'compareAttribute' => 'new_password', 'on' => 'changePwd'),
-
 
         );
     }

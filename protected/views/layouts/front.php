@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="header">
-        <div><img class="logo" src="<?= Yii::app()->request->baseUrl ?>/css/images/oneday.png"></div>
+        <a href="<?=Yii::app()->request->baseUrl?>"><div><img class="logo" src="<?= Yii::app()->request->baseUrl ?>/css/images/oneday.png"></div></a>
         <p class="od">ONE DAY CLUB</p>
     </div>
 </div>

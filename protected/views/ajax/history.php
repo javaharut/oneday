@@ -3,9 +3,23 @@
 
 ?>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+</head>
+
+<body>
+<style>
+    .arm {
+        font-family: Verdana;
+    }
+</style>
 <?php if(isset($user)):?>
 
-<h4> <?=$user->name . ' ' . $user->lname ?> Օգտատիրոջ գործողությունների պատմությունը</h4>
+<h4 class="arm"> <?=$user->name . ' ' . $user->lname ?> Օգտատիրոջ գործողությունների պատմությունը</h4>
 <h3>Օգտատիրոջ ID-ն - <?=$user->id ?></h3>
 
 <?php endif ?>
@@ -36,7 +50,7 @@
     </table>
 
 
-    <?php if(!isset($user)):?>
+    <?php /*if(!isset($user)):*/?>
         <br>
         <div class="row">
             <div class="col-md-12">
@@ -44,6 +58,8 @@
             </div>
         </div>
 
-    <?php endif ?>
+  <!--  --><?php /*endif */?>
 
 </div>
+
+</body>
