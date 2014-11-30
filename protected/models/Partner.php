@@ -19,6 +19,7 @@
  */
 class Partner extends CActiveRecord
 {
+    public $image;
 	/**
 	 * @return string the associated database table name
 	 */

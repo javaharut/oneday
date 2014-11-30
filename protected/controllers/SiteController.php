@@ -178,6 +178,8 @@ class SiteController extends Controller
         $this->render('_partners', array('partners'=>$partners));
     }
     public function actionPartner(){
+        $edit = Main::model()->findByPk(2);
+
         $this->layout = '//layouts/front';
         $criteria=new CDbCriteria();
         $count=Partner::model()->count($criteria);
@@ -188,7 +190,7 @@ class SiteController extends Controller
         $partner = Partner::model()->findAll($criteria);
         // renders the view file 'protected/views/site/index.php'
         // using the default layouts 'protected/views/layouts/main.php'
-        $this->render('partner', array('partner'=>$partner,'pages' => $pages));
+        $this->render('partner', array('partner'=>$partner,'pages' => $pages, 'edit'=>$edit));
     }
 
     public function actionHistory()
@@ -202,6 +204,7 @@ class SiteController extends Controller
         $pages->pageSize=6;
         $pages->applyLimit($criteria);
         $model = History::model()->findAll($criteria);
+
         $this->render('history', array('model' => $model, 'pages' => $pages));
 
 

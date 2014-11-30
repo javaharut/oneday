@@ -26,20 +26,9 @@ class PartnerController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
-                'users' => array('*'),
-            ),
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
-                'users' => array('@'),
-            ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete'),
-                'users' => array('admin'),
-            ),
-            array('deny', // deny all users
-                'users' => array('*'),
+            array('allow',
+                'actions' => array('index', 'create', 'update', 'delete'),
+                'users' => array(User::ADMIN),
             ),
         );
     }
@@ -55,11 +44,64 @@ class PartnerController extends Controller
         ));
     }
 
+    public function actionUpload()
+    {
+        Yii::import("ext.EAjaxUpload.qqFileUploader");
+        $folder= 'css/images/partner/';// folder for uploaded files
+        $allowedExtensions = array("jpg", "jpeg", "png");//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 2 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($folder);
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        $fileName=$result['filename'];//GETTING FILE NAME
+
+        echo $return;// it's array
+        Yii::app()->end();
+    }
+
+    public function actionCreate()
+    {
+        $model=new Partner;
+
+        // Uncomment the following line if AJAX validation is needed
+      //  $this->performAjaxValidation($model);
+
+        if(isset($_POST['Partner']))
+        {
+            $model->attributes=$_POST['Partner'];
+            $model->save();
+
+
+            /*echo('<pre>');
+            print_r($model->id);
+            exit;*/
+            if(file_exists($_SERVER['DOCUMENT_ROOT'] . Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png')) {
+
+                Yii::app()->ih->load($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png')
+                    ->save($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/' . $model->id . '.png');
+
+                $model->img=1;
+                unlink($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png');
+            }
+            else {
+                $model->img=0;
+            }
+            if($model->save())
+                $this->redirect(array('view','id'=>$model->id));
+        }
+
+        $this->render('create',array(
+            'model'=>$model,
+        ));
+    }
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionCreate()
+ /*   public function actionCreate()
     {
         $model = new Partner;
 
@@ -76,7 +118,7 @@ class PartnerController extends Controller
             'model' => $model,
         ));
 
-    }
+    }*/
 
     /**
      * Updates a particular model.
@@ -85,22 +127,29 @@ class PartnerController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->loadModel($id);
+        $model=$this->loadModel($id);
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+        // Uncomment the following line if AJAX validation is needed
+        $this->performAjaxValidation($model);
 
-        if (isset($_POST['Partner'])) {
-            $model->attributes = $_POST['Partner'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+        if(isset($_POST['Partner']))
+        {
+            $model->attributes=$_POST['Partner'];
+
+            if(file_exists($_SERVER['DOCUMENT_ROOT'] . Yii::app()->baseUrl . 'css/images/partner/uploaded.png')) {
+                Yii::app()->ih->load($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/uploaded.png')
+                    ->save($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/' . $model->id . '.png');
+
+                unlink($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/uploaded.png');
+                $model->img = 1;
+            }
+
+            if($model->save())
+                $this->redirect(array('view','id'=>$model->id));
         }
-        echo "<pre>";
-                                print_r($model);
-                                exit;
-                                Yii::app()->end();
-        $this->render('update', array(
-            'model' => $model,
+
+        $this->render('update',array(
+            'model'=>$model,
         ));
     }
 
@@ -121,6 +170,7 @@ class PartnerController extends Controller
         } else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
+
 
     /**
      * Lists all models.
@@ -178,4 +228,23 @@ class PartnerController extends Controller
             Yii::app()->end();
         }
     }
+
+    /*public function actionUpload()
+    {
+        Yii::import("ext.EAjaxUpload.qqFileUploader");
+        $folder= 'images/product/';// folder for uploaded files
+        $allowedExtensions = array("jpg", "jpeg", "png");//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 5 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($folder);
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        $fileName=$result['filename'];//GETTING FILE NAME
+
+        echo $return;// it's array
+        Yii::app()->end();
+    }*/
+
+
 }

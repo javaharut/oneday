@@ -8,8 +8,8 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
 <legend></legend>
 
 
-<img class="img-thumbnail pull-left img" src="<?= Yii::app()->request->baseUrl ?>/images/Gallery%20%20(11).jpg" alt=""
-     width="450px">
+<img class="img-thumbnail pull-left img" src="<?= Yii::app()->request->baseUrl ?>/css/images/partner/<?=$partners->id?>" alt=""
+     width="300px">
 <div class="part_desc">
     <?= $partners->text ?>
 </div>
@@ -26,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
     </div>
 </div>
 
-<a href="<?= $partners->url ?>" class="btn btn-success btn-lg pull-right" role="button">ԳՈՐԾԸՆԿԵՐՈՋ ԿԱՅՔ</a>
+<a href="<?= $partners->url ?>" class="btn btn-success btn-lg pull-right" role="button" target="_blank">ԳՈՐԾԸՆԿԵՐՈՋ ԿԱՅՔ</a>
 <br>
 <br>
 <br>

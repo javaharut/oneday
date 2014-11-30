@@ -42,6 +42,9 @@
                         array('label'=>'Գլխավոր', 'url'=>CHtml::normalizeUrl(array('main/update/1')),
                         ),
 
+                        array('label'=>'Գործընկերներ ՏԵՔՍՏ', 'url'=>CHtml::normalizeUrl(array('main/update/2')),
+                        ),
+
                         array('label'=>'Ծանուցումներ', 'url'=>CHtml::normalizeUrl(array('history/index')),
                             'visible'=>(Yii::app()->user->role == User::ADMIN )),
 
