@@ -44,52 +44,31 @@ class PartnerController extends Controller
         ));
     }
 
-    public function actionUpload()
-    {
-        Yii::import("ext.EAjaxUpload.qqFileUploader");
-        $folder= 'css/images/partner/';// folder for uploaded files
-        $allowedExtensions = array("jpg", "jpeg", "png");//array("jpg","jpeg","gif","exe","mov" and etc...
-        $sizeLimit = 2 * 1024 * 1024;// maximum file size in bytes
-        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-        $result = $uploader->handleUpload($folder);
-        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
-
-        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
-        $fileName=$result['filename'];//GETTING FILE NAME
-
-        echo $return;// it's array
-        Yii::app()->end();
-    }
-
     public function actionCreate()
     {
         $model=new Partner;
 
         // Uncomment the following line if AJAX validation is needed
-      //  $this->performAjaxValidation($model);
+        // $this->performAjaxValidation($model);
 
         if(isset($_POST['Partner']))
         {
             $model->attributes=$_POST['Partner'];
-            $model->save();
+            $model->image = CUploadedFile::getInstance($model,'image');
 
 
-            /*echo('<pre>');
-            print_r($model->id);
+            if(isset($model->image))
+                $model->img = 1;
+           /* echo("<PRE>");
+            print_r($model->img);
             exit;*/
-            if(file_exists($_SERVER['DOCUMENT_ROOT'] . Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png')) {
 
-                Yii::app()->ih->load($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png')
-                    ->save($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/' . $model->id . '.png');
-
-                $model->img=1;
-                unlink($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/temp/uploaded.png');
-            }
-            else {
-                $model->img=0;
-            }
-            if($model->save())
+            if($model->save()) {
+                if(isset($model->image))
+                    $model->image->saveAs('css/images/partner/'.$model->id.".png");
                 $this->redirect(array('view','id'=>$model->id));
+            }
+
         }
 
         $this->render('create',array(
@@ -130,28 +109,30 @@ class PartnerController extends Controller
         $model=$this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
-        $this->performAjaxValidation($model);
+        // $this->performAjaxValidation($model);
 
         if(isset($_POST['Partner']))
         {
             $model->attributes=$_POST['Partner'];
+            $model->image=CUploadedFile::getInstance($model,'image');
 
-            if(file_exists($_SERVER['DOCUMENT_ROOT'] . Yii::app()->baseUrl . 'css/images/partner/uploaded.png')) {
-                Yii::app()->ih->load($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/uploaded.png')
-                    ->save($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/' . $model->id . '.png');
-
-                unlink($_SERVER['DOCUMENT_ROOT'] .Yii::app()->baseUrl . 'css/images/partner/uploaded.png');
+            if(isset($model->image)) {
                 $model->img = 1;
             }
 
             if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+                if(isset($model->image)) {
+                    $model->image->saveAs('css/images/partner/'.$model->id.".png");
+                }
+
+            $this->redirect(array('view','id'=>$model->id));
         }
 
         $this->render('update',array(
             'model'=>$model,
         ));
     }
+
 
     /**
      * Deletes a particular model.
@@ -229,22 +210,7 @@ class PartnerController extends Controller
         }
     }
 
-    /*public function actionUpload()
-    {
-        Yii::import("ext.EAjaxUpload.qqFileUploader");
-        $folder= 'images/product/';// folder for uploaded files
-        $allowedExtensions = array("jpg", "jpeg", "png");//array("jpg","jpeg","gif","exe","mov" and etc...
-        $sizeLimit = 5 * 1024 * 1024;// maximum file size in bytes
-        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-        $result = $uploader->handleUpload($folder);
-        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
-        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
-        $fileName=$result['filename'];//GETTING FILE NAME
-
-        echo $return;// it's array
-        Yii::app()->end();
-    }*/
 
 
 }

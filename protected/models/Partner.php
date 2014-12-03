@@ -37,8 +37,9 @@ class Partner extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('category_id', 'numerical', 'integerOnly'=>true),
-			array('keyword, title, img, x, y, url', 'length', 'max'=>255),
+			array('keyword, title, x, y, url', 'length', 'max'=>255),
 			array('text', 'safe'),
+            array('image', 'file', 'allowEmpty'=>true, 'types'=>'jpg,jpeg,gif,png'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, category_id, keyword, title, text, img, x, y, url', 'safe', 'on'=>'search'),

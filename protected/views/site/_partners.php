@@ -8,11 +8,8 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
 <legend></legend>
 
 
-<img class="img-thumbnail pull-left img" src="<?= Yii::app()->request->baseUrl ?>/css/images/partner/<?=$partners->id?>" alt=""
-     width="300px">
-<div class="part_desc">
-    <?= $partners->text ?>
-</div>
+<img class="img-thumbnail pull-left img" src="<?= Yii::app()->request->baseUrl ?>/css/images/partner/<?=$partners->id?>.png" alt="" width="300px">
+<div class="part_desc"> <?= $partners->text ?>   </div>
 <br>
 <br>
 
@@ -49,8 +46,6 @@ Yii::app()->clientScript->registerScriptFile("https://maps.googleapis.com/maps/a
                 position: myLocation,
                 animation: google.maps.Animation.BOUNCE,
                 title: "Property Location"
-
-
             });
             var map = new google.maps.Map(document.getElementById("map1"),
                 mapOptions);

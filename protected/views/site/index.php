@@ -12,7 +12,7 @@ $this->pageTitle = Yii::app()->name . ' - Գլխավոր էջ';
     </div>
     <div class="col-lg-4">
         <div class="content-history">
-            <span class="title">ԾԱՆՈՒՑՈՒՄՆԵՐ</span>
+            <a href="<?=Yii::app()->request->baseUrl?>/site/history" ><span class="title">ԾԱՆՈՒՑՈՒՄՆԵՐ</span></a>
             <legend></legend>
             <div class="history-index">
                 <?php foreach ($history as $story): ?>

@@ -15,7 +15,7 @@ $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
 
         <div class="col-lg-3 col-xs-12 col-md-3">
             <div class="thumbnail">
-                <img src="<?=Yii::app()->request->baseUrl?>/css/images/partner/<?=$partners->id?>" width="300p" alt="...">
+                <img src="<?=Yii::app()->request->baseUrl?>/css/images/partner/<?=$partners->id?>.png" width="300p" alt="...">
                 <div class="caption">
                     <h3><?=$partners->title?></h3>
                     <p><?=$partners->desc?></p>
@@ -35,10 +35,6 @@ $this->pageTitle = Yii::app()->name . ' - Գործնկերներ';
         <?php    $this->widget('CLinkPager', array(
             'pages' => $pages,
             'header'=>'',
-
-            'selectedPageCssClass'=>'active',
-            'firstPageCssClass'=>'previous',
-            'lastPageCssClass'=>'next',
             'firstPageLabel'=>'Առաջին էջ',
             'lastPageLabel'=>'Վերջին էջ',
             'prevPageLabel'=>'Հաջորդ',

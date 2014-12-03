@@ -309,3 +309,7 @@ h2{color:#34ca78;}
 .logo {
     margin-top: -16px;
 }
+
+a:hover {
+    text-decoration: none;
+}
